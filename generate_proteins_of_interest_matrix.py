@@ -47,7 +47,31 @@ def make_matrix_subset():
   print(df.shape)
 
   # save version without protein categories (e.g. kinase)
-  df.to_csv('CCLE_kmeans_ds_col_100_poi.txt', sep='\t')
+  df.to_csv('CCLE/CCLE_kmeans_ds_col_100_poi_no_cats.txt', sep='\t')
+
+  row_cats = []
+
+  for inst_gene in found_poi:
+
+    # add protein type to gene names
+    found_type = ''
+    for inst_type in poi:
+
+      if inst_gene in poi[inst_type]:
+        found_type = inst_type
+
+
+    gene_name = 'gene: ' + inst_gene
+    cat_name = 'type: ' + found_type
+    inst_tuple = (gene_name, cat_name)
+
+    row_cats.append(inst_tuple)
+
+
+  # redefine index
+  df.index = row_cats
+
+  df.to_csv('CCLE/CCLE_kmeans_ds_col_100_poi.txt', sep='\t')
 
 
 def make_protein_dictionary():
