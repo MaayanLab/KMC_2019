@@ -18,8 +18,6 @@ def make_matrix_subset():
 
   df = net.export_df()
 
-  print('dataframe shape before filtering')
-
   # load proteins of interest
   filename = 'proteins_of_interest/proteins_of_interest.json'
   poi = json_scripts.load_to_dict(filename)
@@ -42,9 +40,6 @@ def make_matrix_subset():
   df = df.transpose()
   df = df[found_poi]
   df = df.transpose()
-
-  print('dataframe shape after fitlering for proteins_of_interest')
-  print(df.shape)
 
   # save version without protein categories (e.g. kinase)
   df.to_csv('CCLE/CCLE_kmeans_ds_col_100_poi_no_cats.txt', sep='\t')
@@ -71,6 +66,7 @@ def make_matrix_subset():
   # redefine index
   df.index = row_cats
 
+  print('-- save matrix with proteins_of_interest subset')
   df.to_csv('CCLE/CCLE_kmeans_ds_col_100_poi.txt', sep='\t')
 
 
@@ -105,4 +101,4 @@ def load_names(protein_type):
 
   return protein_names
 
-main()
+# main()
