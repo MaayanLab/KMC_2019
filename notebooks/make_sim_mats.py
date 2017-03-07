@@ -10,6 +10,7 @@ def main():
   # load genes of interest
   gene_info = net.load_json_to_dict('../grant_pois/gene_info_with_dark.json')
 
+  # ENCODE, GTEx, etc
   hzome_name = 'CCLE.txt'
 
   genes_of_class = gene_info['KIN']['all']
