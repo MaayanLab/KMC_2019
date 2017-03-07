@@ -2,6 +2,7 @@ from clustergrammer import Network
 import pandas as pd
 import numpy as np
 from scipy.spatial.distance import pdist, squareform
+import hzome_to_df
 
 def main():
 
@@ -39,10 +40,13 @@ def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.25):
   print('gene_class: ' + gene_class)
   print('number of genes: ' + str(len(genes_of_class)))
 
-  # load hzome data
-  ####################
-  net.load_file(hzome_filename)
-  hzome_data = net.export_df()
+  # # load hzome data
+  # ####################
+  # net.load_file(hzome_filename)
+  # hzome_data = net.export_df()
+
+  hzome_data = hzome_to_df.main('../hzome_data/ENCODE_TF_targets.txt')
+  print(hzome_data)
 
   # get subset of dataset
   #######################
@@ -60,13 +64,17 @@ def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.25):
   # Z-score normalize data
   #########################
   net.load_df(hzome_data)
-  net.normalize(axis='row', norm_type='zscore', keep_orig=False)
+
+  ################################################
+  # must have different rules for each data type
+  ################################################
+  # net.normalize(axis='row', norm_type='zscore', keep_orig=False)
 
   hzome_data = net.export_df()
 
   # Calc similarity matrix
   ##########################
-  inst_dm = pdist(hzome_data, metric='cosine')
+  inst_dm = pdist(hzome_data, metric='jaccard')
   inst_dm = squareform(inst_dm)
   # convert cosine distance to similarity
   inst_dm = 1 - inst_dm
@@ -101,6 +109,5 @@ def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.25):
                  '.json'
 
   net.write_json_to_file('viz', viz_filename, 'no-indent')
-
 
 main()

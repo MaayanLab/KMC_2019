@@ -19,12 +19,15 @@ def main(filename):
   rows = hzome.index.tolist()
   cols = hzome.columns.tolist()
   mat = hzome.as_matrix()
+  mat = mat.astype(float)
 
   df = pd.DataFrame(data=mat, columns=cols, index=rows)
 
   return df
 
-# # how to run
-# #############
+# how to run
+#############
 # filename = '../hzome_data/small_encode.txt'
-# df = main(filename)
+filename = '../hzome_data/ENCODE_TF_targets.txt'
+df = main(filename)
+print(df)
