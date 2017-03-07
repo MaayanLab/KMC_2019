@@ -1,4 +1,11 @@
 def main():
+  '''
+  I'm working on making similarity matrices for KIN, IC, and GPCR genes based on
+  data in the Hzome. Here I'm gathering my old (Hgram) gene lists with the
+  latest list of the 'dark' genes from the KMC 2017 grant. I'm saving these to a
+  new JSON for later use. The next step is to calculate the similarity matrices
+  and visualize them in a notebook or webpage.
+  '''
   import json_scripts
 
   hgram_info = json_scripts.load_to_dict('../harmonogram_classes/gene_classes_harmonogram.json')
