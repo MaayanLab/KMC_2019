@@ -7,17 +7,30 @@ def main():
 
   gene_types = ['KIN', 'IC', 'GPCR']
 
+  # make a new json with merged all genes and dark gene info
+  gene_info = {}
+
   for inst_type in gene_types:
 
-    all_genes = hgram_info[inst_type]
+    # add any dark genes to all_genes
     dark_genes = grant_poi[inst_type]
+    all_genes = hgram_info[inst_type] + dark_genes
+
+    dark_genes = sorted(list(set(dark_genes)))
+    all_genes = sorted(list(set(all_genes)))
 
     print(inst_type)
     print('all: ' + str(len(all_genes)))
     print('dark: ' + str(len(dark_genes)))
-    print('\n')
 
+    print(len(list(set(dark_genes) - set(all_genes))))
 
+    gene_info[inst_type] = {}
+    gene_info[inst_type]['all'] = all_genes
+    gene_info[inst_type]['dark'] = dark_genes
 
+    print('\n\n')
+
+  json_scripts.save_to_json(gene_info, '../grant_pois/gene_info_with_dark.json', indent='indent')
 
 main()
