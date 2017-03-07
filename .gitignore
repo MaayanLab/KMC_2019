@@ -73,3 +73,4 @@ clustergrammer
 # git commit -m "fixing .gitignore"
 
 CCLE/*
+hzome_data/*

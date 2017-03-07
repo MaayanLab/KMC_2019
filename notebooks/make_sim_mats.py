@@ -10,18 +10,22 @@ def main():
   # load genes of interest
   gene_info = net.load_json_to_dict('../grant_pois/gene_info_with_dark.json')
 
-  hzome_filename = '../CCLE/CCLE.txt'
+  hzome_name = 'CCLE.txt'
 
   genes_of_class = gene_info['KIN']['all']
 
-  calc_gene_sim_mat(net, genes_of_class, hzome_filename)
+  calc_gene_sim_mat(net, gene_info, 'KIN', hzome_name, cutoff_sim=0.15)
 
-def calc_gene_sim_mat(net, genes_of_class, hzome_filename):
+def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.25):
   '''
   Calculate a similarity matrix of a subset of genes using a hzome dataset
   (specified by filename). The files will be saved and clustered similarity
   matrices will be calculated next.
   '''
+
+  hzome_filename = '../hzome_data/' + hzome_name
+
+  genes_of_class = gene_info[gene_class]['all']
 
   print('number of genes: ' + str(len(genes_of_class)))
 
@@ -56,14 +60,17 @@ def calc_gene_sim_mat(net, genes_of_class, hzome_filename):
   # convert cosine distance to similarity
   inst_dm = 1 - inst_dm
   # cutoff values below 0.25
-  inst_dm[ abs(inst_dm) < 0.25] = 0
+  inst_dm[ abs(inst_dm) < cutoff_sim] = 0
 
   df_dm = pd.DataFrame(data=inst_dm, columns=found_genes, index=found_genes)
 
   net.load_df(df_dm)
   net.make_clust(views=[])
 
-  net.write_json_to_file('viz', '../json/mult_view.json', 'no-indent')
+  viz_filename = '../json/' + hzome_name.split('.txt')[0] + '_' + gene_class + \
+                 '.json'
+
+  net.write_json_to_file('viz', viz_filename, 'no-indent')
 
 
 main()
