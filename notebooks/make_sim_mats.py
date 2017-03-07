@@ -14,7 +14,8 @@ def main():
 
   genes_of_class = gene_info['KIN']['all']
 
-  calc_gene_sim_mat(net, gene_info, 'KIN', hzome_name, cutoff_sim=0.15)
+  for gene_class in gene_info:
+    calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.15)
 
 def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.25):
   '''
@@ -23,10 +24,18 @@ def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.25):
   matrices will be calculated next.
   '''
 
+  # convert to normal names
+  class_titles = {}
+  class_titles['KIN'] = 'Kinases'
+  class_titles['IC'] = 'Ion Channels'
+  class_titles['GPCR'] = 'GPCRs'
+
   hzome_filename = '../hzome_data/' + hzome_name
 
   genes_of_class = gene_info[gene_class]['all']
 
+  print('hzome_name: ' + hzome_name)
+  print('gene_class: ' + gene_class)
   print('number of genes: ' + str(len(genes_of_class)))
 
   # load hzome data
@@ -45,6 +54,7 @@ def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.25):
   hzome_data = hzome_data[found_genes]
   hzome_data = hzome_data.transpose()
   print(hzome_data.shape)
+  print('-------------------------\n\n')
 
   # Z-score normalize data
   #########################
@@ -62,7 +72,26 @@ def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.25):
   # cutoff values below 0.25
   inst_dm[ abs(inst_dm) < cutoff_sim] = 0
 
-  df_dm = pd.DataFrame(data=inst_dm, columns=found_genes, index=found_genes)
+  gene_title = class_titles[gene_class]
+
+  # add categories to found genes
+  ################################
+  found_genes_cat = []
+  for inst_gene in found_genes:
+
+    inst_tuple = ()
+
+    inst_name = gene_title + ': ' + inst_gene
+
+    if inst_gene in gene_info[gene_class]['dark']:
+      inst_cat = 'Dark Gene: true'
+    else:
+      inst_cat = 'Dark Gene: false'
+
+    inst_tuple = (inst_name, inst_cat)
+    found_genes_cat.append( inst_tuple )
+
+  df_dm = pd.DataFrame(data=inst_dm, columns=found_genes_cat, index=found_genes_cat)
 
   net.load_df(df_dm)
   net.make_clust(views=[])
