@@ -4,7 +4,7 @@ Example files
 
 var hzome = ini_hzome();
 
-make_clust('my_CCLE_exp_KIN.json');
+make_clust('my_CCLE_exp_IC.json');
 
 var about_string = 'Zoom, scroll, and click buttons to interact with the clustergram. <a href="http://amp.pharm.mssm.edu/clustergrammer/help"> <i class="fa fa-question-circle" aria-hidden="true"></i> </a>';
 
@@ -78,10 +78,13 @@ function dendro_callback(inst_selection){
 
 function resize_container(args){
 
+  var top_section = 50
+
   var screen_width = window.innerWidth;
-  var screen_height = window.innerHeight - 20;
+  var screen_height = window.innerHeight - 20 - top_section;
 
   d3.select(args.root)
     .style('width', screen_width+'px')
-    .style('height', screen_height+'px');
+    .style('height', screen_height+'px')
+    .style('margin-top', top_section+'px');
 }
