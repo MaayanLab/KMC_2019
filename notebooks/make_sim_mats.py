@@ -12,14 +12,22 @@ def main():
   gene_info = net.load_json_to_dict('../grant_pois/gene_info_with_dark.json')
 
   # ENCODE, GTEx, etc
-  hzome_name = 'my_CCLE_exp.txt'
+  # hzome_names = ['my_CCLE_exp.txt', 'ENCODE_TF_targets.txt']
+  hzome_names = ['ChEA_TF_targets.txt']
+
+  # define separate sim_cutoffs for different files
+  cutoffs = {}
+  cutoffs['my_CCLE_exp.txt'] = 0.15
+  cutoffs['ENCODE_TF_targets.txt'] = 0.6
+  cutoffs['ChEA_TF_targets.txt'] = 0.2
 
   genes_of_class = gene_info['KIN']['all']
 
-  for gene_class in gene_info:
-    calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.5)
+  for hzome_name in hzome_names:
+    for gene_class in gene_info:
+      calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoffs)
 
-def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.25):
+def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoffs):
   '''
   Calculate a similarity matrix of a subset of genes using a hzome dataset
   (specified by filename). The files will be saved and clustered similarity
@@ -31,6 +39,9 @@ def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.25):
   class_titles['KIN'] = 'Kinases'
   class_titles['IC'] = 'Ion Channels'
   class_titles['GPCR'] = 'GPCRs'
+
+
+  sim_cutoff = cutoffs[hzome_name]
 
   hzome_filename = '../hzome_data/' + hzome_name
 
@@ -61,7 +72,6 @@ def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.25):
   hzome_data = hzome_data[found_genes]
   hzome_data = hzome_data.transpose()
   print(hzome_data.shape)
-  print('-------------------------\n\n')
 
   # Z-score normalize data
   #########################
@@ -70,7 +80,11 @@ def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.25):
   ################################################
   # must have different rules for each data type
   ################################################
-  # net.normalize(axis='row', norm_type='zscore', keep_orig=False)
+  if '_exp' in hzome_name:
+    # z-score normalize expression data to highlight correlations in gene
+    # expression rather than absolute expression
+    net.normalize(axis='row', norm_type='zscore', keep_orig=False)
+    print('normalize rows!')
 
   hzome_data = net.export_df()
 
@@ -83,12 +97,14 @@ def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.25):
     # expression data is real valued, so use cosine distance
     inst_metric = 'cosine'
 
+  print('inst_metric: '+ inst_metric)
+
   inst_dm = pdist(hzome_data, metric=inst_metric)
   inst_dm = squareform(inst_dm)
   # convert cosine distance to similarity
   inst_dm = 1 - inst_dm
   # cutoff values below 0.25
-  inst_dm[ abs(inst_dm) < cutoff_sim] = 0
+  inst_dm[ abs(inst_dm) < sim_cutoff] = 0
 
   gene_title = class_titles[gene_class]
 
@@ -121,5 +137,7 @@ def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.25):
                  '.json'
 
   net.write_json_to_file('viz', viz_filename, 'no-indent')
+
+  print('-------------------------\n\n')
 
 main()
