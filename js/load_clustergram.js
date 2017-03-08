@@ -2,6 +2,24 @@
 Example files
 */
 
+$("#dropdown_menu_1 li a").click(function(){
+
+  $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+  $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+
+  console.log('change clustergram protein class')
+
+});
+
+$("#dropdown_menu_2 li a").click(function(){
+
+  $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+  $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+
+  console.log('change clustergram data type')
+
+});
+
 var hzome = ini_hzome();
 
 make_clust('my_CCLE_exp_IC.json');
