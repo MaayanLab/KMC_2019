@@ -14,8 +14,8 @@ def main():
 
   # ENCODE, GTEx, etc
   # hzome_names = ['my_CCLE_exp.txt', 'ENCODE_TF_targets.txt', 'ChEA_TF_targets.txt']
-  # hzome_names = ['my_gtex_Moshe_2017_exp.txt']
-  hzome_names = ['my_CCLE_exp.txt']
+  hzome_names = ['my_gtex_Moshe_2017_exp.txt']
+  # hzome_names = ['my_CCLE_exp.txt']
 
   # define separate sim_cutoffs for different files
   cutoffs = {}
@@ -30,6 +30,8 @@ def main():
 
     hzome_filename = '../hzome_data/' + hzome_name
 
+    print('loading data ')
+
     # load hzome data
     ####################
     if 'my_' in hzome_name:
@@ -39,6 +41,8 @@ def main():
     else:
       # load data in hzome format
       hzome_data = deepcopy(hzome_to_df.load_matrix(hzome_filename))
+
+    print('data loaded\n')
 
     for gene_class in gene_info:
       calc_gene_sim_mat(hzome_data, net, gene_info, gene_class, hzome_name, cutoffs)
@@ -90,7 +94,7 @@ def calc_gene_sim_mat(hzome_data, net, gene_info, gene_class, hzome_name, cutoff
     # z-score normalize expression data to highlight correlations in gene
     # expression rather than absolute expression
     net.normalize(axis='row', norm_type='zscore', keep_orig=False)
-    print('** normalize rows')
+    print('**   normalize rows')
 
   hzome_data = net.export_df()
 
