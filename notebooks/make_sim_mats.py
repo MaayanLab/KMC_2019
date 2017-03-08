@@ -12,7 +12,7 @@ def main():
   gene_info = net.load_json_to_dict('../grant_pois/gene_info_with_dark.json')
 
   # ENCODE, GTEx, etc
-  hzome_name = 'CCLE_name.txt'
+  hzome_name = 'my_CCLE_exp.txt'
 
   genes_of_class = gene_info['KIN']['all']
 
@@ -40,13 +40,15 @@ def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.25):
   print('gene_class: ' + gene_class)
   print('number of genes: ' + str(len(genes_of_class)))
 
-  # # load hzome data
-  # ####################
-  # net.load_file(hzome_filename)
-  # hzome_data = net.export_df()
-
-  hzome_data = hzome_to_df.load_matrix('../hzome_data/ENCODE_TF_targets.txt')
-  print(hzome_data)
+  # load hzome data
+  ####################
+  if 'my_' in hzome_name:
+    # if I am providing the data, then load in normal way
+    net.load_file(hzome_filename)
+    hzome_data = net.export_df()
+  else:
+    # load data in hzome format
+    hzome_data = hzome_to_df.load_matrix(hzome_filename)
 
   # get subset of dataset
   #######################
@@ -74,7 +76,14 @@ def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.25):
 
   # Calc similarity matrix
   ##########################
-  inst_dm = pdist(hzome_data, metric='jaccard')
+  if '_targets' in hzome_name:
+    # targets means binary data
+    inst_metric = 'jaccard'
+  elif '_exp' in hzome_name:
+    # expression data is real valued, so use cosine distance
+    inst_metric = 'cosine'
+
+  inst_dm = pdist(hzome_data, metric=inst_metric)
   inst_dm = squareform(inst_dm)
   # convert cosine distance to similarity
   inst_dm = 1 - inst_dm
@@ -103,6 +112,9 @@ def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.25):
   df_dm = pd.DataFrame(data=inst_dm, columns=found_genes_cat, index=found_genes_cat)
 
   net.load_df(df_dm)
+
+  # always use default parameters to cluster distance matrix since the values
+  # a real numbers
   net.make_clust(views=[])
 
   viz_filename = '../json/' + hzome_name.split('.txt')[0] + '_' + gene_class + \
