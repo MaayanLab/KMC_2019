@@ -4,7 +4,13 @@ Example files
 
 clust_options = {};
 clust_options.protein_class = 'KIN';
-clust_options.data_type = 'CCLE';
+clust_options.data_type = 'ccle';
+
+full_names = {};
+full_names.ccle = 'my_CCLE_exp';
+full_names.gtex = 'my_gtex_Moshe_2017_exp';
+full_names.encode = 'ENCODE_TF_targets';
+full_names.chea = 'ChEA_TF_targets';
 
 $("#dropdown_menu_1 li a").click(function(){
 
@@ -14,7 +20,9 @@ $("#dropdown_menu_1 li a").click(function(){
   console.log('change clustergram protein class')
   console.log();
 
+  // update global clust_options and rerun make_clust
   clust_options.protein_class = d3.select(this).attr('data-value');
+  make_clust();
 
 });
 
@@ -26,17 +34,23 @@ $("#dropdown_menu_2 li a").click(function(){
   console.log('change clustergram data type')
 
   clust_options.data_type = d3.select(this).attr('data-value');
+  make_clust();
 
 });
 
 var hzome = ini_hzome();
 
 // initial view
-make_clust('my_CCLE_exp_KIN.json');
+make_clust();
 
 var about_string = 'Zoom, scroll, and click buttons to interact with the clustergram. <a href="http://amp.pharm.mssm.edu/clustergrammer/help"> <i class="fa fa-question-circle" aria-hidden="true"></i> </a>';
 
-function make_clust(inst_network){
+function make_clust(){
+
+  var data_name = full_names[clust_options.data_type];
+  var inst_network = data_name + '_' + clust_options.protein_class + '.json';
+
+  console.log(inst_network)
 
   // clear out old visualization elements
   d3.selectAll('#container-id-1 div').remove();
