@@ -78,7 +78,7 @@ function dendro_callback(inst_selection){
 
 function resize_container(args){
 
-  var top_section = 50
+  var top_section = 55
 
   var screen_width = window.innerWidth;
   var screen_height = window.innerHeight - 20 - top_section;
