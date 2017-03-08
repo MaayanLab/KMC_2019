@@ -85,6 +85,6 @@ function resize_container(args){
 
   d3.select(args.root)
     .style('width', screen_width+'px')
-    .style('height', screen_height+'px')
-    .style('margin-top', top_section+'px');
+    .style('height', screen_height+'px');
+    // .style('margin-top', top_section+'px');
 }

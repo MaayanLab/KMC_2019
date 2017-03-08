@@ -137,3 +137,23 @@ body{
 .sidebar_tooltip:hover .sidebar_tooltip_text {
     visibility: visible;
 }
+
+#title_with_dropdown{
+  height: 50px;
+  font-size: 30px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: left;
+  margin-left: 15px;
+}
+
+#start_title{
+  margin-top: 5px;
+  float:left;
+}
+
+#protein_class{
+  margin-left: 5px;
+  font-size: 30px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 3px;
+}
