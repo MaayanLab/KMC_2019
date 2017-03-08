@@ -2,15 +2,19 @@
 Example files
 */
 
+clust_options = {};
+clust_options.protein_class = 'KIN';
+clust_options.data_type = 'CCLE';
+
 $("#dropdown_menu_1 li a").click(function(){
 
   $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
   $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
 
-
   console.log('change clustergram protein class')
-  console.log(d3.select(this).attr('data-value'));
+  console.log();
 
+  clust_options.protein_class = d3.select(this).attr('data-value');
 
 });
 
@@ -21,17 +25,30 @@ $("#dropdown_menu_2 li a").click(function(){
 
   console.log('change clustergram data type')
 
+  clust_options.data_type = d3.select(this).attr('data-value');
+
 });
 
 var hzome = ini_hzome();
 
-make_clust('my_CCLE_exp_IC.json');
+// initial view
+make_clust('my_CCLE_exp_KIN.json');
 
 var about_string = 'Zoom, scroll, and click buttons to interact with the clustergram. <a href="http://amp.pharm.mssm.edu/clustergrammer/help"> <i class="fa fa-question-circle" aria-hidden="true"></i> </a>';
 
 function make_clust(inst_network){
 
-    d3.json('json/'+inst_network, function(network_data){
+  // clear out old visualization elements
+  d3.selectAll('#container-id-1 div').remove();
+
+  // <h1 class='wait_message'>Please wait ...</h1>
+
+  d3.select('#container-id-1')
+    .append('h1')
+    .classed('wait_message', true)
+    .html('Please wait ...');
+
+  d3.json('json/'+inst_network, function(network_data){
 
       // define arguments object
       var args = {
@@ -56,7 +73,7 @@ function make_clust(inst_network){
 
       cgm = Clustergrammer(args);
 
-      check_setup_enrichr(cgm);
+      // check_setup_enrichr(cgm);
 
       d3.select(cgm.params.root + ' .wait_message').remove();
 

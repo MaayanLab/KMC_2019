@@ -171,3 +171,7 @@ body{
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-top: 0px;
 }
+
+.wait_message{
+  margin-left: 10px;
+}
