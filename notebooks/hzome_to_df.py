@@ -1,16 +1,17 @@
-def main(filename):
+import pandas as pd
 
-  print('here')
-  import pandas as pd
+def load_matrix(filename):
 
   hzome = pd.read_csv(filename, sep='\t')
 
   # set the index (row names) to the first column
   hzome = hzome.set_index('#')
 
+  orig_cols = hzome.columns.tolist()
+
   # drop the two other columns
-  hzome = hzome.drop('#.1', 1)
-  hzome = hzome.drop('GeneSym', 1)
+  hzome = hzome.drop(orig_cols[0], 1)
+  hzome = hzome.drop(orig_cols[1], 1)
 
   # drop two row indexes
   hzome = hzome.drop( hzome.index[[0,1]] )
@@ -25,9 +26,9 @@ def main(filename):
 
   return df
 
-# how to run
-#############
-# filename = '../hzome_data/small_encode.txt'
-filename = '../hzome_data/ENCODE_TF_targets.txt'
-df = main(filename)
-print(df)
+# # how to run
+# #############
+# # filename = '../hzome_data/small_encode.txt'
+# filename = '../hzome_data/ENCODE_TF_targets.txt'
+# df = main(filename)
+# print(df)

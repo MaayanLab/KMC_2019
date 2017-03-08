@@ -12,12 +12,12 @@ def main():
   gene_info = net.load_json_to_dict('../grant_pois/gene_info_with_dark.json')
 
   # ENCODE, GTEx, etc
-  hzome_name = 'CCLE.txt'
+  hzome_name = 'CCLE_name.txt'
 
   genes_of_class = gene_info['KIN']['all']
 
   for gene_class in gene_info:
-    calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.15)
+    calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.5)
 
 def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.25):
   '''
@@ -45,7 +45,7 @@ def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoff_sim=0.25):
   # net.load_file(hzome_filename)
   # hzome_data = net.export_df()
 
-  hzome_data = hzome_to_df.main('../hzome_data/ENCODE_TF_targets.txt')
+  hzome_data = hzome_to_df.load_matrix('../hzome_data/ENCODE_TF_targets.txt')
   print(hzome_data)
 
   # get subset of dataset
