@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from scipy.spatial.distance import pdist, squareform
 import hzome_to_df
+from copy import deepcopy
 
 def main():
 
@@ -12,22 +13,37 @@ def main():
   gene_info = net.load_json_to_dict('../grant_pois/gene_info_with_dark.json')
 
   # ENCODE, GTEx, etc
-  # hzome_names = ['my_CCLE_exp.txt', 'ENCODE_TF_targets.txt']
-  hzome_names = ['ChEA_TF_targets.txt']
+  # hzome_names = ['my_CCLE_exp.txt', 'ENCODE_TF_targets.txt', 'ChEA_TF_targets.txt']
+  # hzome_names = ['my_gtex_Moshe_2017_exp.txt']
+  hzome_names = ['my_CCLE_exp.txt']
 
   # define separate sim_cutoffs for different files
   cutoffs = {}
   cutoffs['my_CCLE_exp.txt'] = 0.15
   cutoffs['ENCODE_TF_targets.txt'] = 0.6
   cutoffs['ChEA_TF_targets.txt'] = 0.2
+  cutoffs['my_gtex_Moshe_2017_exp.txt'] = 0.2
 
   genes_of_class = gene_info['KIN']['all']
 
   for hzome_name in hzome_names:
-    for gene_class in gene_info:
-      calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoffs)
 
-def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoffs):
+    hzome_filename = '../hzome_data/' + hzome_name
+
+    # load hzome data
+    ####################
+    if 'my_' in hzome_name:
+      # if I am providing the data, then load in normal way
+      net.load_file(hzome_filename)
+      hzome_data = net.export_df()
+    else:
+      # load data in hzome format
+      hzome_data = deepcopy(hzome_to_df.load_matrix(hzome_filename))
+
+    for gene_class in gene_info:
+      calc_gene_sim_mat(hzome_data, net, gene_info, gene_class, hzome_name, cutoffs)
+
+def calc_gene_sim_mat(hzome_data, net, gene_info, gene_class, hzome_name, cutoffs):
   '''
   Calculate a similarity matrix of a subset of genes using a hzome dataset
   (specified by filename). The files will be saved and clustered similarity
@@ -43,7 +59,6 @@ def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoffs):
 
   sim_cutoff = cutoffs[hzome_name]
 
-  hzome_filename = '../hzome_data/' + hzome_name
 
   genes_of_class = gene_info[gene_class]['all']
 
@@ -51,15 +66,6 @@ def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoffs):
   print('gene_class: ' + gene_class)
   print('number of genes: ' + str(len(genes_of_class)))
 
-  # load hzome data
-  ####################
-  if 'my_' in hzome_name:
-    # if I am providing the data, then load in normal way
-    net.load_file(hzome_filename)
-    hzome_data = net.export_df()
-  else:
-    # load data in hzome format
-    hzome_data = hzome_to_df.load_matrix(hzome_filename)
 
   # get subset of dataset
   #######################
@@ -84,7 +90,7 @@ def calc_gene_sim_mat(net, gene_info, gene_class, hzome_name, cutoffs):
     # z-score normalize expression data to highlight correlations in gene
     # expression rather than absolute expression
     net.normalize(axis='row', norm_type='zscore', keep_orig=False)
-    print('normalize rows!')
+    print('** normalize rows')
 
   hzome_data = net.export_df()
 
