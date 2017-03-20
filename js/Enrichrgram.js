@@ -40,9 +40,9 @@ function run_ini_enrichr(inst_cgm){
 
     if (d3.select(inst_root + ' .enrichr_logo').empty()){
 
-      // // set up Enrichr category import
-      // enr_obj[inst_root] = Enrichrgram(inst_cgm);
-      // enr_obj[inst_root].enrichr_icon();
+      // set up Enrichr category import
+      enr_obj[inst_root] = Enrichrgram(inst_cgm);
+      enr_obj[inst_root].enrichr_icon();
 
       // set up Enrichr export in dendro modal
       //////////////////////////////////////////

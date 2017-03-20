@@ -175,3 +175,11 @@ body{
 .wait_message{
   margin-left: 10px;
 }
+
+.page_description_paragraph{
+  margin-left: 10px;
+  font-size: 16px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
