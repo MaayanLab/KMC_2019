@@ -43,7 +43,7 @@ var hzome = ini_hzome();
 // initial view
 make_clust();
 
-var about_string = 'Zoom, scroll, and click buttons to interact with the clustergram. <a href="http://amp.pharm.mssm.edu/clustergrammer/help"> <i class="fa fa-question-circle" aria-hidden="true"></i> </a>';
+// var about_string = 'Zoom, scroll, and click buttons to interact with the clustergram. <a href="http://amp.pharm.mssm.edu/clustergrammer/help"> <i class="fa fa-question-circle" aria-hidden="true"></i> </a>';
 
 function make_clust(){
 
@@ -68,7 +68,7 @@ function make_clust(){
       var args = {
         root: '#container-id-1',
         'network_data': network_data,
-        'about':about_string,
+        // 'about':about_string,
         'row_tip_callback':hzome.gene_info,
         'col_tip_callback':test_col_callback,
         'tile_tip_callback':test_tile_callback,
@@ -87,7 +87,7 @@ function make_clust(){
 
       cgm = Clustergrammer(args);
 
-      // check_setup_enrichr(cgm);
+      check_setup_enrichr(cgm);
 
       d3.select(cgm.params.root + ' .wait_message').remove();
 

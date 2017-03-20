@@ -3,30 +3,36 @@ enr_obj = {};
 
 function check_setup_enrichr(inst_cgm){
 
-  genes_were_found[inst_cgm.params.root] = false;
+  // genes_were_found[inst_cgm.params.root] = false;
 
-  var all_rows = inst_cgm.params.network_data.row_nodes_names;
-  var max_num_genes = 20;
+  // var all_rows = inst_cgm.params.network_data.row_nodes_names;
+  // var max_num_genes = 20;
 
-  if (all_rows.length > 20){
-    all_rows = all_rows.slice(0,20);
-  }
+  // if (all_rows.length > 20){
+  //   all_rows = all_rows.slice(0,20);
+  // }
 
-  var wait_unit = 500;
-  var wait_time = 0;
+  // var wait_unit = 500;
+  // var wait_time = 0;
 
-  // check each gene using Harmonizome
-  _.each(all_rows, function(inst_name){
+  // // check each gene using Harmonizome
+  // _.each(all_rows, function(inst_name){
 
-    setTimeout(check_gene_request, wait_time, inst_cgm, inst_name, run_ini_enrichr);
+  //   setTimeout(check_gene_request, wait_time, inst_cgm, inst_name, run_ini_enrichr);
 
-    wait_time = wait_time + wait_unit;
+  //   wait_time = wait_time + wait_unit;
 
-  });
+  // });
+
+
+  // manually override.
+  genes_were_found[inst_cgm.params.root] = true;
+
+  run_ini_enrichr(inst_cgm);
 
 }
 
-function run_ini_enrichr(inst_cgm, inst_name){
+function run_ini_enrichr(inst_cgm){
 
   var inst_root = inst_cgm.params.root;
 
@@ -34,9 +40,9 @@ function run_ini_enrichr(inst_cgm, inst_name){
 
     if (d3.select(inst_root + ' .enrichr_logo').empty()){
 
-      // set up Enrichr category import
-      enr_obj[inst_root] = Enrichrgram(inst_cgm);
-      enr_obj[inst_root].enrichr_icon();
+      // // set up Enrichr category import
+      // enr_obj[inst_root] = Enrichrgram(inst_cgm);
+      // enr_obj[inst_root].enrichr_icon();
 
       // set up Enrichr export in dendro modal
       //////////////////////////////////////////
@@ -62,15 +68,6 @@ function run_ini_enrichr(inst_cgm, inst_name){
 
           // replace all instances of commas with new line
           var gene_list = group_string.replace(/, /g, '\n');
-
-          ///////////////
-          ///////////////
-          ///////////////
-          // clean list
-          ///////////////
-          ///////////////
-          ///////////////
-
           var enrichr_info = {list: gene_list, description: 'Clustergrammer gene-cluster list' , popup: true};
 
           // defined globally - will improve
