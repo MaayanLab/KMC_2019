@@ -1,3 +1,11 @@
+GPCR
+-----
+GPR144 has a SNP which causes a missense mutation that is associated with aging. Zichen sent me this link
+
+http://exac.broadinstitute.org/variant/9-127213445-G-A
+
+I shuold try to incorporate this into our analysis if possible.
+
 Ion Channel
 -----------
 I clustered the ICs based on CCLE gene expression. I identified five clusters from the dendrogram at level 4. These clusters were sent to Enrichr
