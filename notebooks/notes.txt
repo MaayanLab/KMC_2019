@@ -1,0 +1,91 @@
+Ion Channel
+-----------
+I clustered the ICs based on CCLE gene expression. I identified five clusters from the dendrogram at level 4. These clusters were sent to Enrichr
+
+* 1 https://amp.pharm.mssm.edu/Enrichr/enrich?dataset=1botj
+* 2 https://amp.pharm.mssm.edu/Enrichr/enrich?dataset=1botl
+* 3 https://amp.pharm.mssm.edu/Enrichr/enrich?dataset=1botm
+* 4 https://amp.pharm.mssm.edu/Enrichr/enrich?dataset=1botn
+* 5 https://amp.pharm.mssm.edu/Enrichr/enrich?dataset=1boto
+
+I looked for distinguishing information assocaited with these clusters of ICs and avoided obvious enrichment, e.g. they are enriched for Ion Channels. KEGG 2016, Wikipathways, and Reactome enrichment seems to give interesting and distinct results for the different clusters.
+
+Cluster 1. 110 genes
+  KEGG
+    Neuroactive ligand-receptor interaction
+    Nicotine ADDICTION
+    Arrhythmogenic right ventricular cardiomyo...
+    Oxytocin signaling pathway
+    Cardiac muscle contraction
+
+  WikiPpathways 2016
+    Arrhythmogenic right ventricular cardiomyo...
+    Calcium regulation in the cardiac cell musc...
+    Calcium regulation in ...
+    Alzheimers
+    Nicotine activity on dopaminergic neurons
+
+Custer 2. 21 genes
+  KEGG
+    Neuractive ligand-receptor interaction
+    Calcium  signaling pathway
+    Cholinergic synapse
+    Inflammatory mediator regulation of TRP...
+    Retrograde endocannabinoid signaling
+
+  WikiPathways 2016
+    Alzheimers disase (mouse)
+    Myometrial relaxation and contraction
+    Alzheimers disease
+    Calcium regulation in nthe cardiac cel
+    myometrial relazation and contraction
+
+
+Cluster 3. 49 genes
+  KEGG
+    Nicotine ADDICTION
+    Retrograde endocannabinoid signaling (endocannabinoid signaling is thought to be involved in addiction http://www.nature.com/nrn/journal/v16/n10/abs/nrn4004.html)
+    Serotonergic synapse (serotonin is thought to be involved in addiction https://www.ncbi.nlm.nih.gov/pubmed/24769172)
+    Dopaminergic synapse (dopamine is thought to be involved in addiction https://en.wikipedia.org/wiki/Dopamine)
+    Neuroactive ligand-receptor interaction ()
+
+  Wikipathways 2016
+    Calcium regulation in the cardiac celll (mouse)
+    Calcium regulation in the cardiac cell
+    Arrhythmogenic right ventri...
+    Hypothetical Network for Drug ADDICTION (human)
+    Hypothetical Network for Drug ADDICTION (mouse)
+
+Cluster 4. 36 genes
+  KEGG
+    Pancreatic secretion
+    Gastric acid secreation
+    Nicotine addiction
+    Renin secretion
+    Taste transduction
+
+  WikiPathways 2016
+    Caicium regulation in the cardiac cell mouse
+    Caicium regulation in the cardiac cell human
+    Alz
+    Myometrical
+    Alz
+
+Cluster 5. 19 genes
+  KEGG 2016
+    Glutamatergic symanse
+    neuroactive
+    pancreatic
+    cGMP-PKG
+    long term depression
+
+  Wikipathways 2016
+    Splicing factor NOVA
+    SIDS suceeip
+    Calc at cardiac human
+    Calc at cardiac mouse
+    PodNet potein ...
+s
+
+
+
