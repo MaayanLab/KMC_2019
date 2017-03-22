@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- <base href='/clustergrammer/'> -->
 
-    <title>Clustergrammer</title>
+    <title>KMC 2017</title>
 
     <link rel="shortcut icon" href="static/icons/graham_cracker.ico"  type="image/x-icon">
 
@@ -71,7 +71,7 @@
       }
 
       .viz_description{
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 400;
         margin-top: 10px;
         margin-left: 5px;
@@ -133,10 +133,34 @@
       </div>
     </div>
 
+    <h3 class='page_headers'>About</h3>
+
     <div class='row viz_description' id='clustergram_desc'>
-      <p>Above is a clustergram/heatmap visualization of your input matrix. The rows and columns have been hierarchically clustered, using the Scipy library in Python, using cosine distance and average linkage. Red/blue cells in the matrix represent positive/negative values in your matrix. The visualization interactive (zoomable, reorderable, filterable) and shareable - the current URL is permanent and shareable.</p>
+      <p>
+        The above similarity matrix shows protein-protein similarity (e.g. kinase-kinase) based on biological data (e.g. CCLE expression across cancer cell lines). Understudied or 'Dark Genes' are shown using row and column categories (e.g Dark genes are shown with the gold color), which enables us to find associations between understudied and more well known genes through clustering.
+
+        Use the dropdowns to toggle between different protein classes: Kinases, Ion Channels, and GPCRs; and different data-sets: CCLE Gene Expression, GTEx Gene Expression, ENCODE TF Targets, and ChEA TF Targets.
+
+      </p>
+
+      <p>
+        The rows/columns have been hierarchically clustered, using the SciPy library in Python (using cosine distance for real valued data and Jaccard distance for binary data). Red/blue cells in the matrix represent positive/negative similarity values. The visualization is interactive (zoomable, reorderable, etc; see <a href="http://clustergrammer.readthedocs.io/interacting_with_viz.html">Interacting with the Visualization</a> for more information) and was produced using <a href="http://clustergrammer.readthedocs.io/">Clustergrammer</a>.
+      </p>
     </div>
 
+    <h3 class='page_headers'>Exploratory Notebooks</h3>
+    <div class='row viz_description' id='clustergram_desc'>
+      <p>
+        We used Jupyter notebooks to more closely explore protein-protein similarity based on CCLE gene expression and identify common biological themes in the protein-clusters.
+      </p>
+
+      <h4>Kinase Notebook</h4>
+      <p>
+        We identified a cluster of co-expressed mitosis-related kinases that includes three dark kinases (PKMYT1, PKN3, and NEK4). We conclude that these dark kinases may be involved in mitosis and show that this cluster of kinases is highly expressed in Haematopoietic and Lymphoid tissues from the CCLE, which are known to be highly proliferative . <a href="http://nbviewer.jupyter.org/github/MaayanLab/KMC_2017/blob/master/notebooks/Inter_Dark_Kinase_Function_from_Clustering.ipynb">Link to notebook.</a>
+      </p>
+
+
+    </div>
 
 <!--
     <div class='row viz_title' id='col_sim_title'>
