@@ -25,7 +25,7 @@ body{
   color:#333;
   text-align: justify;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   padding-left: 0px;
 }
 
@@ -136,4 +136,54 @@ body{
 
 .sidebar_tooltip:hover .sidebar_tooltip_text {
     visibility: visible;
+}
+
+#title_with_dropdown{
+  height: 50px;
+  font-size: 28px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: left;
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.dropdown_button{
+  display: inline-block;
+  padding-top: 0px;
+}
+
+#start_title{
+  /*float:left;*/
+}
+
+.title_text{
+  /*margin-top: 3px;*/
+}
+
+#title_container{
+  /*float:left;*/
+}
+
+#protein_class{
+  margin-left: 5px;
+  font-size: 28px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 0px;
+}
+
+.wait_message{
+  margin-left: 20px;
+  font-size: 40px;
+}
+
+.page_description_paragraph{
+  margin-left: 10px;
+  font-size: 16px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
+#dropdown_container{
+  margin-bottom: 10px;
 }

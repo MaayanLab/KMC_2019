@@ -63,7 +63,7 @@
       .viz_title{
         width: 100%;
         font-size: 30px;
-        font-weight: 300;
+        font-weight: 400;
         /*margin-left: -10px;*/
         margin-top: 10px;
         margin-bottom: 20px;
@@ -71,8 +71,8 @@
       }
 
       .viz_description{
-        font-size: 16px;
-        font-weight: 300;
+        font-size: 18px;
+        font-weight: 400;
         margin-top: 10px;
         margin-left: 5px;
         margin-right: 20px;
@@ -89,7 +89,42 @@
   <div id="wrap" class='container'>
 
     <div class='row viz_title' id='clustergram_title'>
-    Clustergrammer
+    <!-- Clustergrammer -->
+
+      <div id='dropdown_container'>
+
+        <div class="dropdown" style="display: inline-block;">
+          <button class="btn btn-default dropdown-toggle dropdown_button" type="button" id="protein_class" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Kinase
+            <span class="caret"></span>
+          </button>
+          <ul class='dropdown-menu' id="dropdown_menu_1" aria-labelledby="dropdownMenu1">
+            <li><a href="#" data-value="KIN">Kinase</a></li>
+            <li><a href="#" data-value="IC">Ion Channel</a></li>
+            <li><a href="#" data-value="GPCR">GPCR</a></li>
+          </ul>
+        </div>
+
+        <div  class='title_text' style="display: inline-block;">
+          Similarity based on
+        </div>
+
+
+        <div class="dropdown" style="display: inline-block;">
+          <button class="btn btn-default dropdown-toggle dropdown_button" type="button" id="protein_class" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            CCLE Gene Expression
+            <span class="caret"></span>
+          </button>
+          <ul class='dropdown-menu' id="dropdown_menu_2" aria-labelledby="dropdownMenu1">
+            <li><a href="#" data-value="ccle">CCLE Gene Expression</a></li>
+            <li><a href="#" data-value="gtex">GTEx Gene Expression</a></li>
+            <li><a href="#" data-value="encode">ENCODE TF Targets</a></li>
+            <li><a href="#" data-value="chea">ChEA TF Targets</a></li>
+          </ul>
+        </div>
+
+      </div>
+
     </div>
 
     <div class="row" >
