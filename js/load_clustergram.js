@@ -18,7 +18,6 @@ $("#dropdown_menu_1 li a").click(function(){
   $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
 
   console.log('change clustergram protein class')
-  console.log();
 
   // update global clust_options and rerun make_clust
   clust_options.protein_class = d3.select(this).attr('data-value');

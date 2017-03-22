@@ -1,10 +1,46 @@
-var tmp_num;
-var cat_colors;
+clust_options = {};
+clust_options.protein_class = 'KIN';
+clust_options.data_type = 'ccle';
+
+full_names = {};
+full_names.ccle = 'my_CCLE_exp';
+full_names.gtex = 'my_gtex_Moshe_2017_exp';
+full_names.encode = 'ENCODE_TF_targets';
+full_names.chea = 'ChEA_TF_targets';
+
+// var tmp_num;
+// var cat_colors;
 // global cgm
 cgm = {};
 resize_container();
 
 var hzome = ini_hzome();
+
+$("#dropdown_menu_1 li a").click(function(){
+
+  $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+  $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+
+  console.log('change clustergram protein class')
+  console.log();
+
+  // update global clust_options and rerun make_clust
+  clust_options.protein_class = d3.select(this).attr('data-value');
+  make_clust();
+
+});
+
+$("#dropdown_menu_2 li a").click(function(){
+
+  $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+  $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+
+  console.log('change clustergram data type')
+
+  clust_options.data_type = d3.select(this).attr('data-value');
+  make_clust();
+
+});
 
 default_args = {};
   default_args.row_tip_callback = hzome.gene_info;
@@ -12,7 +48,20 @@ default_args = {};
   default_args.dendro_callback = dendro_callback;
 
 function make_clust(){
-  var clust_name = 'my_CCLE_exp_KIN.json'
+
+  // var clust_name = 'my_CCLE_exp_KIN.json'
+  var data_name = full_names[clust_options.data_type];
+  var clust_name = data_name + '_' + clust_options.protein_class + '.json';
+
+  console.log('loading: ' + clust_name);
+
+  // clear out old visualization elements
+  d3.selectAll('#container-id-1 div').remove();
+
+  d3.select('#container-id-1')
+    .append('div')
+    .classed('wait_message', true)
+    .html('Please wait ...');
 
   d3.json('json/'+clust_name, function(network_data){
 
@@ -23,7 +72,7 @@ function make_clust(){
 
     cgm['clust'] = Clustergrammer(args);
     d3.select(cgm['clust'].params.root+' .wait_message').remove();
-    cat_colors = cgm['clust'].params.viz.cat_colors;
+    // cat_colors = cgm['clust'].params.viz.cat_colors;
 
     check_setup_enrichr(cgm['clust']);
 
