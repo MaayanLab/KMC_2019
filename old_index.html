@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>KMC 2017</title>
+
+    <link rel="shortcut icon" href="img/graham_cracker.ico"  type="image/x-icon">
+
+    <link rel="stylesheet" href="lib/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="lib/css/custom.css">
+
+</head>
+
+<body>
+
+<div id='title_with_dropdown'>
+
+  <div id='start_title' class='title_text' style="display: inline-block;">
+    <!-- Title -->
+  </div>
+
+  <div class="dropdown" style="display: inline-block;">
+    <button class="btn btn-default dropdown-toggle dropdown_button" type="button" id="protein_class" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Kinase
+      <span class="caret"></span>
+    </button>
+    <ul class='dropdown-menu' id="dropdown_menu_1" aria-labelledby="dropdownMenu1">
+      <li><a href="#" data-value="KIN">Kinase</a></li>
+      <li><a href="#" data-value="IC">Ion Channel</a></li>
+      <li><a href="#" data-value="GPCR">GPCR</a></li>
+    </ul>
+  </div>
+
+
+   <div  class='title_text' style="display: inline-block;">
+  Similarity based on
+  </div>
+
+
+  <div class="dropdown" style="display: inline-block;">
+    <button class="btn btn-default dropdown-toggle dropdown_button" type="button" id="protein_class" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      CCLE Gene Expression
+      <span class="caret"></span>
+    </button>
+    <ul class='dropdown-menu' id="dropdown_menu_2" aria-labelledby="dropdownMenu1">
+      <li><a href="#" data-value="ccle">CCLE Gene Expression</a></li>
+      <li><a href="#" data-value="gtex">GTEx Gene Expression</a></li>
+      <li><a href="#" data-value="encode">ENCODE TF Targets</a></li>
+      <li><a href="#" data-value="chea">ChEA TF Targets</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<!--
+<div id='page_description_container'>
+<div class='page_description_paragraph'>
+Description
+</div>
+</div>
+ -->
+
+  <div id='container-id-1'>
+      <!-- <h1 class='wait_message'>Please wait ...</h1> -->
+  </div>
+
+
+  <!-- Required JS Libraries -->
+  <script src="lib/js/d3.js"></script>
+  <script src="lib/js/jquery-1.11.2.min.js"></script>
+  <script src="lib/js/underscore-min.js"></script>
+  <script src="lib/js/bootstrap.min.js"></script>
+
+  <!-- Clustergrammer JS -->
+  <script src='js/clustergrammer.min.js'></script>
+
+  <!-- optional modules -->
+  <script src='js/Enrichrgram.js'></script>
+  <script src='js/hzome_functions.js'></script>
+  <script src='js/send_to_Enrichr.js'></script>
+
+  <!-- make clustergram -->
+  <script src='js/load_clustergram.js'></script>
+
+</body>
+
+</html>
