@@ -88,44 +88,44 @@
 
   <div id="wrap" class='container'>
 
-    <div class='row viz_title' id='clustergram_title'>
-    <!-- Clustergrammer -->
+    <div class='row viz_title' id='clustergram_title' style='white-space: nowrap; margin-left: 5px;'>
+    Characterizing 'Dark' Proteins using Similarity Matrices
+    </div>
 
-      <div id='dropdown_container'>
+    <div id='dropdown_container' style='margin-top: 5px; margin-bottom: 10px;'>
 
-        <div class="dropdown" style="display: inline-block;">
-          <button class="btn btn-default dropdown-toggle dropdown_button" type="button" id="protein_class" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Kinase
-            <span class="caret"></span>
-          </button>
-          <ul class='dropdown-menu' id="dropdown_menu_1" aria-labelledby="dropdownMenu1">
-            <li><a href="#" data-value="KIN">Kinase</a></li>
-            <li><a href="#" data-value="IC">Ion Channel</a></li>
-            <li><a href="#" data-value="GPCR">GPCR</a></li>
-          </ul>
-        </div>
+      <div class="dropdown" style="display: inline-block;">
+        <button class="btn btn-default dropdown-toggle dropdown_button" type="button" id="protein_class" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Kinase
+          <span class="caret"></span>
+        </button>
+        <ul class='dropdown-menu' id="dropdown_menu_1" aria-labelledby="dropdownMenu1">
+          <li><a href="#" data-value="KIN">Kinase</a></li>
+          <li><a href="#" data-value="IC">Ion Channel</a></li>
+          <li><a href="#" data-value="GPCR">GPCR</a></li>
+        </ul>
+      </div>
 
-        <div  class='title_text' style="display: inline-block;">
-          Similarity based on
-        </div>
+      <div  class='title_text' style="display: inline-block;">
+        Similarity based on
+      </div>
 
 
-        <div class="dropdown" style="display: inline-block;">
-          <button class="btn btn-default dropdown-toggle dropdown_button" type="button" id="protein_class" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            CCLE Gene Expression
-            <span class="caret"></span>
-          </button>
-          <ul class='dropdown-menu' id="dropdown_menu_2" aria-labelledby="dropdownMenu1">
-            <li><a href="#" data-value="ccle">CCLE Gene Expression</a></li>
-            <li><a href="#" data-value="gtex">GTEx Gene Expression</a></li>
-            <li><a href="#" data-value="encode">ENCODE TF Targets</a></li>
-            <li><a href="#" data-value="chea">ChEA TF Targets</a></li>
-          </ul>
-        </div>
-
+      <div class="dropdown" style="display: inline-block;">
+        <button class="btn btn-default dropdown-toggle dropdown_button" type="button" id="protein_class" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          CCLE Gene Expression
+          <span class="caret"></span>
+        </button>
+        <ul class='dropdown-menu' id="dropdown_menu_2" aria-labelledby="dropdownMenu1">
+          <li><a href="#" data-value="ccle">CCLE Gene Expression</a></li>
+          <li><a href="#" data-value="gtex">GTEx Gene Expression</a></li>
+          <li><a href="#" data-value="encode">ENCODE TF Targets</a></li>
+          <li><a href="#" data-value="chea">ChEA TF Targets</a></li>
+        </ul>
       </div>
 
     </div>
+
 
     <div class="row" >
       <div id='container-id-1' class='clustergrammer_container'>
