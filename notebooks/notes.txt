@@ -8,6 +8,10 @@ I shuold try to incorporate this into our analysis if possible.
 
 Ion Channel
 -----------
+KCNK13 is highly expressed in the heart and is one of the ICs from the cardiac cluster.
+
+Ion Channel
+-----------
 I clustered the ICs based on CCLE gene expression. I identified five clusters from the dendrogram at level 4. These clusters were sent to Enrichr
 
 * 1 https://amp.pharm.mssm.edu/Enrichr/enrich?dataset=1botj
