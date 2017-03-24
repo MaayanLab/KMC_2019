@@ -201,13 +201,13 @@ h2 {
 }
 
 .example_single_title{
-  font-size: 19px;
+  font-size: 25px;
   font-weight: 300;
   text-align: center;
 }
 
 .example_single_description{
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 300;
   text-align: justify;
   padding: 5px;
