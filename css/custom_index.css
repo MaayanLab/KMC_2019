@@ -19,7 +19,7 @@ body {
 
 
 body {
-  height: 100%;
+  /*height: 100%;*/
   /* The html and body elements cannot have any padding or margin. */
   position: relative;
   /*width: 1000px;*/
@@ -234,9 +234,9 @@ h2 {
   margin-top: 10px;
 }
 
-.jupyter_logo{
-  width: 198px;
-  margin-left: 51px;
+.TCGA{
+  width: 265px;
+  margin-left: 67px;
   margin-top: 0px;
 }
 
@@ -259,13 +259,14 @@ h2 {
   margin-left: 10px;
 }
 
-#L1000CDS2{
-  margin-left: 10px;
+#app_screenshot{
+  margin-left: 59px;
+  width:317px
 }
 
 .example_col{
-  padding-left: 7px;
-  padding-right: 7px;
+  padding-left: 14px;
+  padding-right: 14px;
 }
 
 #help_link{
