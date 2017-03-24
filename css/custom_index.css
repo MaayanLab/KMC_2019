@@ -154,6 +154,9 @@ h2 {
 .footer_text{
   padding-top: 2px;
   padding-bottom: 2px;
+  font-size: 17px;
+  font-weight: 300;
+
 }
 
 #footer_text_container{
