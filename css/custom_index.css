@@ -154,7 +154,7 @@ h2 {
 .footer_text{
   padding-top: 2px;
   padding-bottom: 2px;
-  font-size: 17px;
+  font-size: 13px;
   font-weight: 300;
 
 }
@@ -200,7 +200,7 @@ h2 {
 }
 
 .example_single_description{
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 300;
   text-align: justify;
   padding: 5px;
@@ -231,6 +231,11 @@ h2 {
   width: 265px;
   margin-left: 67px;
   margin-top: 0px;
+}
+
+#alex_image{
+  width: 270px;
+  margin-left: 62px;
 }
 
 #enrichr_example{

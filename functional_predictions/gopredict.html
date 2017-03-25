@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>GO term prediction</h2>
+  <p>To predict gene annotation with biological processes from the gene ontology (GO) we first calculate all pairwise gene correlations from the ARCHS4 RNA-seq expression. We then iterate over each of the 5192 biological process terms from the Enrichr gene set library. For each gene we calculate the average correlation of the genes in the gene set. The values are stored in a matrix Cij for i genes and j biological processes. We then z-score normalize all columns of C. Finally for each gene we sort the corresponding row of C ranking the terms on the gene population z-score. Terms with high z-scores are predicted to be accurate annotations for the gene. To show the correctness of the term ranking we calculate the area under the curve (AUC) from the ROC for all genes with annotations in GO. For GO biological processes the average AUC for retrieving already annotated terms is 0.765. </p>
+  <img src="roc_go.png" align="middle">
+  <p><b>Example</b></p>
+<table class="table table-bordered table-hover table-condensed table-striped">
+<tbody>
+<tr><td><a href="PKMYT1.html">PKMYT1</a><p> 
+This gene encodes a member of the serine/threonine protein kinase family. The encoded protein is a membrane-associated kinase that negatively regulates the G2/M transition of the cell cycle by phosphorylating and inactivating cyclin-dependent kinase 1. The activity of the encoded protein is regulated by polo-like kinase 1. Alternatively spliced transcript variants encoding multiple isoforms have been observed for this gene. [provided by RefSeq, May 2012]</p>
+</td><td><a href="NEK4.html">NEK4</a>
+<p>NEK4 (NIMA Related Kinase 4) is a Protein Coding gene. Diseases associated with NEK4 include Meckel Syndrome 1. Among its related pathways are Sweet Taste Signaling. GO annotations related to this gene include transferase activity, transferring phosphorus-containing groups and protein tyrosine kinase activity. An important paralog of this gene is NEK1.</p>
+</td></tr>
+<tr><td><a href="PKN3.html">PKN3</a>
+<p>PKN3 (Protein Kinase N3) is a Protein Coding gene. Among its related pathways are Salmonella infection (KEGG) and Signaling by GPCR. GO annotations related to this gene include transferase activity, transferring phosphorus-containing groups and protein tyrosine kinase activity. An important paralog of this gene is PKN1.</p>
+</td><td><a href="ADGRD2.html">ADGRD2</a>
+<p>ADGRD2 (Adhesion G Protein-Coupled Receptor D2) is a Protein Coding gene. GO annotations related to this gene include G-protein coupled receptor activity and transmembrane signaling receptor activity. An important paralog of this gene is ADGRL1.</p>
+</td></tr>
+</tbody>
+</table>
+
+</div>
+</body>
+</html>
