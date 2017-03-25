@@ -5,414 +5,505 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <style type="text/css">
+
+      /* Sticky footer styles
+      -------------------------------------------------- */
+      html, body {
+        max-width: 100%;
+        overflow-x:hidden;
+      }
+
+      /* Wrapper for page content to push down footer */
+      /* Negative indent footer by its height */
+      /* Pad bottom by footer height */
+      #wrap {
+        min-height: 100%;
+        min-width: 800px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #footer {
+        height: 60px;
+        text-align: center;
+        font-size: 13px;
+        padding-left:10px;
+        padding-right:10px;
+        margin-top: 15px;
+        padding-top: 10px;
+        border-top: 1px solid #DEDEDE;
+        font-weight: 300;
+      }
+
+      #footer_text_container{
+        margin-top: 10px;
+        margin-bottom: 0px;
+        min-width: 950px;
+      }
+
+      .clustergrammer_container{
+        width: 1140px;
+        height: 750px;
+        margin-bottom: 10px;
+        overflow: hidden;
+      }
+
+      .viz_title{
+        width: 100%;
+        font-size: 30px;
+        font-weight: 300;
+        /*margin-left: -10px;*/
+        margin-top: 10px;
+        margin-bottom: 5px;
+        border-bottom: 1px solid #DEDEDE;
+      }
+
+      .viz_description{
+        font-size: 16px;
+        font-weight: 300;
+        margin-top: 10px;
+        margin-left: 5px;
+        margin-right: 20px;
+        text-align: justify;
+        margin-bottom: 30px;
+      }
+
+    </style>
+
+
 </head>
 <body>
 
-<div class="container">
-  <h2>ADGRD2</h2>
-  <p>Top 200 predicted GO terms</p>
+  <div id="wrap" class='container'>
 
-<table class="table table-bordered table-hover table-condensed table-striped">
-<tbody>
-<tr><th>Go term</th><th>Z-score</th></tr>
-<tr>
-<td>behavioral response to nicotine (GO:0035095)</td>
-<td align="right">1.81127953808247</td>
-</tr>
-<tr>
-<td>L-fucose metabolic process (GO:0042354)</td>
-<td align="right">1.79349808354951</td>
-</tr>
-<tr>
-<td>L-fucose catabolic process (GO:0042355)</td>
-<td align="right">1.79349808354951</td>
-</tr>
-<tr>
-<td>fucose catabolic process (GO:0019317)</td>
-<td align="right">1.79349808354951</td>
-</tr>
-<tr>
-<td>response to pheromone (GO:0019236)</td>
-<td align="right">1.70362277884113</td>
-</tr>
-<tr>
-<td>kynurenine metabolic process (GO:0070189)</td>
-<td align="right">1.51836305671649</td>
-</tr>
-<tr>
-<td>cornea development in camera-type eye (GO:0061303)</td>
-<td align="right">1.49475592501936</td>
-</tr>
-<tr>
-<td>sulfation (GO:0051923)</td>
-<td align="right">1.34119206719269</td>
-</tr>
-<tr>
-<td>exogenous drug catabolic process (GO:0042738)</td>
-<td align="right">1.3212009010954</td>
-</tr>
-<tr>
-<td>regulation of MHC class I biosynthetic process (GO:0045343)</td>
-<td align="right">1.09025333592784</td>
-</tr>
-<tr>
-<td>thyroid hormone metabolic process (GO:0042403)</td>
-<td align="right">0.982823169230438</td>
-</tr>
-<tr>
-<td>regulation of acrosome reaction (GO:0060046)</td>
-<td align="right">0.96449895814442</td>
-</tr>
-<tr>
-<td>benzene-containing compound metabolic process (GO:0042537)</td>
-<td align="right">0.954863288711209</td>
-</tr>
-<tr>
-<td>negative regulation of cytosolic calcium ion concentration (GO:0051481)</td>
-<td align="right">0.882497191502581</td>
-</tr>
-<tr>
-<td>regulation of gene silencing by miRNA (GO:0060964)</td>
-<td align="right">0.880620377022397</td>
-</tr>
-<tr>
-<td>regulation of gene silencing by RNA (GO:0060966)</td>
-<td align="right">0.880620377022397</td>
-</tr>
-<tr>
-<td>regulation of posttranscriptional gene silencing (GO:0060147)</td>
-<td align="right">0.880620377022397</td>
-</tr>
-<tr>
-<td>detection of chemical stimulus involved in sensory perception of smell (GO:0050911)</td>
-<td align="right">0.868006964080145</td>
-</tr>
-<tr>
-<td>detection of chemical stimulus involved in sensory perception (GO:0050907)</td>
-<td align="right">0.867458057360898</td>
-</tr>
-<tr>
-<td>detection of light stimulus involved in sensory perception (GO:0050962)</td>
-<td align="right">0.855160794814394</td>
-</tr>
-<tr>
-<td>detection of light stimulus involved in visual perception (GO:0050908)</td>
-<td align="right">0.855160794814394</td>
-</tr>
-<tr>
-<td>natural killer cell activation involved in immune response (GO:0002323)</td>
-<td align="right">0.85295803154206</td>
-</tr>
-<tr>
-<td>detection of chemical stimulus (GO:0009593)</td>
-<td align="right">0.838415774552894</td>
-</tr>
-<tr>
-<td>piRNA metabolic process (GO:0034587)</td>
-<td align="right">0.834146749640261</td>
-</tr>
-<tr>
-<td>indolalkylamine catabolic process (GO:0046218)</td>
-<td align="right">0.832010476138671</td>
-</tr>
-<tr>
-<td>tryptophan catabolic process (GO:0006569)</td>
-<td align="right">0.832010476138671</td>
-</tr>
-<tr>
-<td>indole-containing compound catabolic process (GO:0042436)</td>
-<td align="right">0.832010476138671</td>
-</tr>
-<tr>
-<td>drug catabolic process (GO:0042737)</td>
-<td align="right">0.781008566487355</td>
-</tr>
-<tr>
-<td>indolalkylamine metabolic process (GO:0006586)</td>
-<td align="right">0.750469612933089</td>
-</tr>
-<tr>
-<td>epithelial cilium movement involved in determination of left/right asymmetry (GO:0060287)</td>
-<td align="right">0.746951997146866</td>
-</tr>
-<tr>
-<td>thyroid hormone generation (GO:0006590)</td>
-<td align="right">0.725244691723234</td>
-</tr>
-<tr>
-<td>multicellular organism reproduction (GO:0032504)</td>
-<td align="right">0.719668276500848</td>
-</tr>
-<tr>
-<td>DNA deamination (GO:0045006)</td>
-<td align="right">0.70006899001874</td>
-</tr>
-<tr>
-<td>detection of chemical stimulus involved in sensory perception of bitter taste (GO:0001580)</td>
-<td align="right">0.692744724318897</td>
-</tr>
-<tr>
-<td>cellular anion homeostasis (GO:0030002)</td>
-<td align="right">0.680135297556522</td>
-</tr>
-<tr>
-<td>positive regulation of peptidyl-serine phosphorylation of STAT protein (GO:0033141)</td>
-<td align="right">0.645628464424536</td>
-</tr>
-<tr>
-<td>regulation of peptidyl-serine phosphorylation of STAT protein (GO:0033139)</td>
-<td align="right">0.645628464424536</td>
-</tr>
-<tr>
-<td>regulation of hippo signaling (GO:0035330)</td>
-<td align="right">0.643512591704899</td>
-</tr>
-<tr>
-<td>sensory perception of smell (GO:0007608)</td>
-<td align="right">0.640683882012395</td>
-</tr>
-<tr>
-<td>phosphatidylinositol acyl-chain remodeling (GO:0036149)</td>
-<td align="right">0.563897567227568</td>
-</tr>
-<tr>
-<td>cell proliferation in forebrain (GO:0021846)</td>
-<td align="right">0.551627176890707</td>
-</tr>
-<tr>
-<td>neural tube formation (GO:0001841)</td>
-<td align="right">0.486242485994779</td>
-</tr>
-<tr>
-<td>detection of chemical stimulus involved in sensory perception of taste (GO:0050912)</td>
-<td align="right">0.482187426010485</td>
-</tr>
-<tr>
-<td>kidney morphogenesis (GO:0060993)</td>
-<td align="right">0.458682941453402</td>
-</tr>
-<tr>
-<td>cytidine catabolic process (GO:0006216)</td>
-<td align="right">0.442881430348379</td>
-</tr>
-<tr>
-<td>cytidine deamination (GO:0009972)</td>
-<td align="right">0.442881430348379</td>
-</tr>
-<tr>
-<td>cytidine metabolic process (GO:0046087)</td>
-<td align="right">0.442881430348379</td>
-</tr>
-<tr>
-<td>negative regulation of telomere maintenance (GO:0032205)</td>
-<td align="right">0.412203264895781</td>
-</tr>
-<tr>
-<td>male meiosis I (GO:0007141)</td>
-<td align="right">0.404846769931526</td>
-</tr>
-<tr>
-<td>axoneme assembly (GO:0035082)</td>
-<td align="right">0.39319783075621</td>
-</tr>
-<tr>
-<td>pyrimidine ribonucleoside catabolic process (GO:0046133)</td>
-<td align="right">0.358175310124936</td>
-</tr>
-<tr>
-<td>positive regulation of defense response to virus by host (GO:0002230)</td>
-<td align="right">0.35211307444493</td>
-</tr>
-<tr>
-<td>reciprocal DNA recombination (GO:0035825)</td>
-<td align="right">0.318525833875623</td>
-</tr>
-<tr>
-<td>reciprocal meiotic recombination (GO:0007131)</td>
-<td align="right">0.318525833875623</td>
-</tr>
-<tr>
-<td>regulation of mesoderm development (GO:2000380)</td>
-<td align="right">0.303220086513103</td>
-</tr>
-<tr>
-<td>3&#39;-phosphoadenosine 5&#39;-phosphosulfate metabolic process (GO:0050427)</td>
-<td align="right">0.290965079633147</td>
-</tr>
-<tr>
-<td>purine ribonucleoside bisphosphate metabolic process (GO:0034035)</td>
-<td align="right">0.290965079633147</td>
-</tr>
-<tr>
-<td>regulation of memory T cell differentiation (GO:0043380)</td>
-<td align="right">0.266837721300986</td>
-</tr>
-<tr>
-<td>positive regulation of response to tumor cell (GO:0002836)</td>
-<td align="right">0.257847062138048</td>
-</tr>
-<tr>
-<td>regulation of immune response to tumor cell (GO:0002837)</td>
-<td align="right">0.257847062138048</td>
-</tr>
-<tr>
-<td>regulation of response to tumor cell (GO:0002834)</td>
-<td align="right">0.257847062138048</td>
-</tr>
-<tr>
-<td>positive regulation of immune response to tumor cell (GO:0002839)</td>
-<td align="right">0.257847062138048</td>
-</tr>
-<tr>
-<td>synapsis (GO:0007129)</td>
-<td align="right">0.250705448905301</td>
-</tr>
-<tr>
-<td>basic amino acid transport (GO:0015802)</td>
-<td align="right">0.235407644099544</td>
-</tr>
-<tr>
-<td>cilium movement (GO:0003341)</td>
-<td align="right">0.217312945746332</td>
-</tr>
-<tr>
-<td>epithelial cilium movement (GO:0003351)</td>
-<td align="right">0.205597396544922</td>
-</tr>
-<tr>
-<td>membrane depolarization during cardiac muscle cell action potential (GO:0086012)</td>
-<td align="right">0.192632082759743</td>
-</tr>
-<tr>
-<td>signal peptide processing (GO:0006465)</td>
-<td align="right">0.190200473470958</td>
-</tr>
-<tr>
-<td>tryptophan metabolic process (GO:0006568)</td>
-<td align="right">0.188696880711697</td>
-</tr>
-<tr>
-<td>serine family amino acid catabolic process (GO:0009071)</td>
-<td align="right">0.176821563020014</td>
-</tr>
-<tr>
-<td>positive regulation of sodium ion transmembrane transporter activity (GO:2000651)</td>
-<td align="right">0.176569022460058</td>
-</tr>
-<tr>
-<td>regulation of activation of Janus kinase activity (GO:0010533)</td>
-<td align="right">0.170271732099848</td>
-</tr>
-<tr>
-<td>regulation of cilium movement (GO:0003352)</td>
-<td align="right">0.148852422423835</td>
-</tr>
-<tr>
-<td>DNA methylation involved in gamete generation (GO:0043046)</td>
-<td align="right">0.147016655559538</td>
-</tr>
-<tr>
-<td>indole-containing compound metabolic process (GO:0042430)</td>
-<td align="right">0.130334567614112</td>
-</tr>
-<tr>
-<td>G-protein coupled glutamate receptor signaling pathway (GO:0007216)</td>
-<td align="right">0.124468994533472</td>
-</tr>
-<tr>
-<td>negative regulation of transcription regulatory region DNA binding (GO:2000678)</td>
-<td align="right">0.120223158301648</td>
-</tr>
-<tr>
-<td>cell wall macromolecule catabolic process (GO:0016998)</td>
-<td align="right">0.10329135840425</td>
-</tr>
-<tr>
-<td>cilium or flagellum-dependent cell motility (GO:0001539)</td>
-<td align="right">0.100756450474888</td>
-</tr>
-<tr>
-<td>positive regulation of tyrosine phosphorylation of Stat5 protein (GO:0042523)</td>
-<td align="right">0.100004323426991</td>
-</tr>
-<tr>
-<td>killing of cells of other organism (GO:0031640)</td>
-<td align="right">0.099454893780098</td>
-</tr>
-<tr>
-<td>disruption of cells of other organism (GO:0044364)</td>
-<td align="right">0.099454893780098</td>
-</tr>
-<tr>
-<td>mast cell activation involved in immune response (GO:0002279)</td>
-<td align="right">0.0894911539523277</td>
-</tr>
-<tr>
-<td>mast cell degranulation (GO:0043303)</td>
-<td align="right">0.0894911539523277</td>
-</tr>
-<tr>
-<td>cell wall macromolecule metabolic process (GO:0044036)</td>
-<td align="right">0.08403917775799</td>
-</tr>
-<tr>
-<td>detection of mechanical stimulus involved in sensory perception of sound (GO:0050910)</td>
-<td align="right">0.0789089690215504</td>
-</tr>
-<tr>
-<td>gonadal mesoderm development (GO:0007506)</td>
-<td align="right">0.0771330561459708</td>
-</tr>
-<tr>
-<td>NADH dehydrogenase complex assembly (GO:0010257)</td>
-<td align="right">0.075113235578472</td>
-</tr>
-<tr>
-<td>mitochondrial respiratory chain complex I biogenesis (GO:0097031)</td>
-<td align="right">0.075113235578472</td>
-</tr>
-<tr>
-<td>mitochondrial respiratory chain complex I assembly (GO:0032981)</td>
-<td align="right">0.075113235578472</td>
-</tr>
-<tr>
-<td>mitochondrial electron transport NADH to ubiquinone (GO:0006120)</td>
-<td align="right">0.0724670902493272</td>
-</tr>
-<tr>
-<td>regulation of single stranded viral RNA replication via double stranded DNA intermediate (GO:0045091)</td>
-<td align="right">0.0714644795993173</td>
-</tr>
-<tr>
-<td>somatic hypermutation of immunoglobulin genes (GO:0016446)</td>
-<td align="right">0.0632896394144973</td>
-</tr>
-<tr>
-<td>somatic diversification of immune receptors via somatic mutation (GO:0002566)</td>
-<td align="right">0.0632896394144973</td>
-</tr>
-<tr>
-<td>respiratory chain complex IV assembly (GO:0008535)</td>
-<td align="right">0.0527802743907695</td>
-</tr>
-<tr>
-<td>ATP synthesis coupled proton transport (GO:0015986)</td>
-<td align="right">0.0522000217233003</td>
-</tr>
-<tr>
-<td>energy coupled proton transport down electrochemical gradient (GO:0015985)</td>
-<td align="right">0.0522000217233003</td>
-</tr>
-<tr>
-<td>water-soluble vitamin biosynthetic process (GO:0042364)</td>
-<td align="right">0.0469501193089269</td>
-</tr>
-<tr>
-<td>regulation of neurotransmitter uptake (GO:0051580)</td>
-<td align="right">0.044239598486572</td>
-</tr>
-<tr>
-<td>regulation of nuclear cell cycle DNA replication (GO:0033262)</td>
-<td align="right">0.0441205016536273</td>
-</tr>
-</tbody></table>
+    <div class='row viz_title' id='clustergram_title' style='white-space: nowrap; margin-left: 5px;'>
+      <p id='example_title'>Omics Mining for the Illuminating the Druggable Genome Project</p>
+    </div>
+
+    <div class="container">
+      <h2>ADGRD2</h2>
+      <p>Top 200 predicted GO terms</p>
+
+    <table class="table table-bordered table-hover table-condensed table-striped">
+    <tbody>
+    <tr><th>Go term</th><th>Z-score</th></tr>
+    <tr>
+    <td>behavioral response to nicotine (GO:0035095)</td>
+    <td align="right">1.81127953808247</td>
+    </tr>
+    <tr>
+    <td>L-fucose metabolic process (GO:0042354)</td>
+    <td align="right">1.79349808354951</td>
+    </tr>
+    <tr>
+    <td>L-fucose catabolic process (GO:0042355)</td>
+    <td align="right">1.79349808354951</td>
+    </tr>
+    <tr>
+    <td>fucose catabolic process (GO:0019317)</td>
+    <td align="right">1.79349808354951</td>
+    </tr>
+    <tr>
+    <td>response to pheromone (GO:0019236)</td>
+    <td align="right">1.70362277884113</td>
+    </tr>
+    <tr>
+    <td>kynurenine metabolic process (GO:0070189)</td>
+    <td align="right">1.51836305671649</td>
+    </tr>
+    <tr>
+    <td>cornea development in camera-type eye (GO:0061303)</td>
+    <td align="right">1.49475592501936</td>
+    </tr>
+    <tr>
+    <td>sulfation (GO:0051923)</td>
+    <td align="right">1.34119206719269</td>
+    </tr>
+    <tr>
+    <td>exogenous drug catabolic process (GO:0042738)</td>
+    <td align="right">1.3212009010954</td>
+    </tr>
+    <tr>
+    <td>regulation of MHC class I biosynthetic process (GO:0045343)</td>
+    <td align="right">1.09025333592784</td>
+    </tr>
+    <tr>
+    <td>thyroid hormone metabolic process (GO:0042403)</td>
+    <td align="right">0.982823169230438</td>
+    </tr>
+    <tr>
+    <td>regulation of acrosome reaction (GO:0060046)</td>
+    <td align="right">0.96449895814442</td>
+    </tr>
+    <tr>
+    <td>benzene-containing compound metabolic process (GO:0042537)</td>
+    <td align="right">0.954863288711209</td>
+    </tr>
+    <tr>
+    <td>negative regulation of cytosolic calcium ion concentration (GO:0051481)</td>
+    <td align="right">0.882497191502581</td>
+    </tr>
+    <tr>
+    <td>regulation of gene silencing by miRNA (GO:0060964)</td>
+    <td align="right">0.880620377022397</td>
+    </tr>
+    <tr>
+    <td>regulation of gene silencing by RNA (GO:0060966)</td>
+    <td align="right">0.880620377022397</td>
+    </tr>
+    <tr>
+    <td>regulation of posttranscriptional gene silencing (GO:0060147)</td>
+    <td align="right">0.880620377022397</td>
+    </tr>
+    <tr>
+    <td>detection of chemical stimulus involved in sensory perception of smell (GO:0050911)</td>
+    <td align="right">0.868006964080145</td>
+    </tr>
+    <tr>
+    <td>detection of chemical stimulus involved in sensory perception (GO:0050907)</td>
+    <td align="right">0.867458057360898</td>
+    </tr>
+    <tr>
+    <td>detection of light stimulus involved in sensory perception (GO:0050962)</td>
+    <td align="right">0.855160794814394</td>
+    </tr>
+    <tr>
+    <td>detection of light stimulus involved in visual perception (GO:0050908)</td>
+    <td align="right">0.855160794814394</td>
+    </tr>
+    <tr>
+    <td>natural killer cell activation involved in immune response (GO:0002323)</td>
+    <td align="right">0.85295803154206</td>
+    </tr>
+    <tr>
+    <td>detection of chemical stimulus (GO:0009593)</td>
+    <td align="right">0.838415774552894</td>
+    </tr>
+    <tr>
+    <td>piRNA metabolic process (GO:0034587)</td>
+    <td align="right">0.834146749640261</td>
+    </tr>
+    <tr>
+    <td>indolalkylamine catabolic process (GO:0046218)</td>
+    <td align="right">0.832010476138671</td>
+    </tr>
+    <tr>
+    <td>tryptophan catabolic process (GO:0006569)</td>
+    <td align="right">0.832010476138671</td>
+    </tr>
+    <tr>
+    <td>indole-containing compound catabolic process (GO:0042436)</td>
+    <td align="right">0.832010476138671</td>
+    </tr>
+    <tr>
+    <td>drug catabolic process (GO:0042737)</td>
+    <td align="right">0.781008566487355</td>
+    </tr>
+    <tr>
+    <td>indolalkylamine metabolic process (GO:0006586)</td>
+    <td align="right">0.750469612933089</td>
+    </tr>
+    <tr>
+    <td>epithelial cilium movement involved in determination of left/right asymmetry (GO:0060287)</td>
+    <td align="right">0.746951997146866</td>
+    </tr>
+    <tr>
+    <td>thyroid hormone generation (GO:0006590)</td>
+    <td align="right">0.725244691723234</td>
+    </tr>
+    <tr>
+    <td>multicellular organism reproduction (GO:0032504)</td>
+    <td align="right">0.719668276500848</td>
+    </tr>
+    <tr>
+    <td>DNA deamination (GO:0045006)</td>
+    <td align="right">0.70006899001874</td>
+    </tr>
+    <tr>
+    <td>detection of chemical stimulus involved in sensory perception of bitter taste (GO:0001580)</td>
+    <td align="right">0.692744724318897</td>
+    </tr>
+    <tr>
+    <td>cellular anion homeostasis (GO:0030002)</td>
+    <td align="right">0.680135297556522</td>
+    </tr>
+    <tr>
+    <td>positive regulation of peptidyl-serine phosphorylation of STAT protein (GO:0033141)</td>
+    <td align="right">0.645628464424536</td>
+    </tr>
+    <tr>
+    <td>regulation of peptidyl-serine phosphorylation of STAT protein (GO:0033139)</td>
+    <td align="right">0.645628464424536</td>
+    </tr>
+    <tr>
+    <td>regulation of hippo signaling (GO:0035330)</td>
+    <td align="right">0.643512591704899</td>
+    </tr>
+    <tr>
+    <td>sensory perception of smell (GO:0007608)</td>
+    <td align="right">0.640683882012395</td>
+    </tr>
+    <tr>
+    <td>phosphatidylinositol acyl-chain remodeling (GO:0036149)</td>
+    <td align="right">0.563897567227568</td>
+    </tr>
+    <tr>
+    <td>cell proliferation in forebrain (GO:0021846)</td>
+    <td align="right">0.551627176890707</td>
+    </tr>
+    <tr>
+    <td>neural tube formation (GO:0001841)</td>
+    <td align="right">0.486242485994779</td>
+    </tr>
+    <tr>
+    <td>detection of chemical stimulus involved in sensory perception of taste (GO:0050912)</td>
+    <td align="right">0.482187426010485</td>
+    </tr>
+    <tr>
+    <td>kidney morphogenesis (GO:0060993)</td>
+    <td align="right">0.458682941453402</td>
+    </tr>
+    <tr>
+    <td>cytidine catabolic process (GO:0006216)</td>
+    <td align="right">0.442881430348379</td>
+    </tr>
+    <tr>
+    <td>cytidine deamination (GO:0009972)</td>
+    <td align="right">0.442881430348379</td>
+    </tr>
+    <tr>
+    <td>cytidine metabolic process (GO:0046087)</td>
+    <td align="right">0.442881430348379</td>
+    </tr>
+    <tr>
+    <td>negative regulation of telomere maintenance (GO:0032205)</td>
+    <td align="right">0.412203264895781</td>
+    </tr>
+    <tr>
+    <td>male meiosis I (GO:0007141)</td>
+    <td align="right">0.404846769931526</td>
+    </tr>
+    <tr>
+    <td>axoneme assembly (GO:0035082)</td>
+    <td align="right">0.39319783075621</td>
+    </tr>
+    <tr>
+    <td>pyrimidine ribonucleoside catabolic process (GO:0046133)</td>
+    <td align="right">0.358175310124936</td>
+    </tr>
+    <tr>
+    <td>positive regulation of defense response to virus by host (GO:0002230)</td>
+    <td align="right">0.35211307444493</td>
+    </tr>
+    <tr>
+    <td>reciprocal DNA recombination (GO:0035825)</td>
+    <td align="right">0.318525833875623</td>
+    </tr>
+    <tr>
+    <td>reciprocal meiotic recombination (GO:0007131)</td>
+    <td align="right">0.318525833875623</td>
+    </tr>
+    <tr>
+    <td>regulation of mesoderm development (GO:2000380)</td>
+    <td align="right">0.303220086513103</td>
+    </tr>
+    <tr>
+    <td>3&#39;-phosphoadenosine 5&#39;-phosphosulfate metabolic process (GO:0050427)</td>
+    <td align="right">0.290965079633147</td>
+    </tr>
+    <tr>
+    <td>purine ribonucleoside bisphosphate metabolic process (GO:0034035)</td>
+    <td align="right">0.290965079633147</td>
+    </tr>
+    <tr>
+    <td>regulation of memory T cell differentiation (GO:0043380)</td>
+    <td align="right">0.266837721300986</td>
+    </tr>
+    <tr>
+    <td>positive regulation of response to tumor cell (GO:0002836)</td>
+    <td align="right">0.257847062138048</td>
+    </tr>
+    <tr>
+    <td>regulation of immune response to tumor cell (GO:0002837)</td>
+    <td align="right">0.257847062138048</td>
+    </tr>
+    <tr>
+    <td>regulation of response to tumor cell (GO:0002834)</td>
+    <td align="right">0.257847062138048</td>
+    </tr>
+    <tr>
+    <td>positive regulation of immune response to tumor cell (GO:0002839)</td>
+    <td align="right">0.257847062138048</td>
+    </tr>
+    <tr>
+    <td>synapsis (GO:0007129)</td>
+    <td align="right">0.250705448905301</td>
+    </tr>
+    <tr>
+    <td>basic amino acid transport (GO:0015802)</td>
+    <td align="right">0.235407644099544</td>
+    </tr>
+    <tr>
+    <td>cilium movement (GO:0003341)</td>
+    <td align="right">0.217312945746332</td>
+    </tr>
+    <tr>
+    <td>epithelial cilium movement (GO:0003351)</td>
+    <td align="right">0.205597396544922</td>
+    </tr>
+    <tr>
+    <td>membrane depolarization during cardiac muscle cell action potential (GO:0086012)</td>
+    <td align="right">0.192632082759743</td>
+    </tr>
+    <tr>
+    <td>signal peptide processing (GO:0006465)</td>
+    <td align="right">0.190200473470958</td>
+    </tr>
+    <tr>
+    <td>tryptophan metabolic process (GO:0006568)</td>
+    <td align="right">0.188696880711697</td>
+    </tr>
+    <tr>
+    <td>serine family amino acid catabolic process (GO:0009071)</td>
+    <td align="right">0.176821563020014</td>
+    </tr>
+    <tr>
+    <td>positive regulation of sodium ion transmembrane transporter activity (GO:2000651)</td>
+    <td align="right">0.176569022460058</td>
+    </tr>
+    <tr>
+    <td>regulation of activation of Janus kinase activity (GO:0010533)</td>
+    <td align="right">0.170271732099848</td>
+    </tr>
+    <tr>
+    <td>regulation of cilium movement (GO:0003352)</td>
+    <td align="right">0.148852422423835</td>
+    </tr>
+    <tr>
+    <td>DNA methylation involved in gamete generation (GO:0043046)</td>
+    <td align="right">0.147016655559538</td>
+    </tr>
+    <tr>
+    <td>indole-containing compound metabolic process (GO:0042430)</td>
+    <td align="right">0.130334567614112</td>
+    </tr>
+    <tr>
+    <td>G-protein coupled glutamate receptor signaling pathway (GO:0007216)</td>
+    <td align="right">0.124468994533472</td>
+    </tr>
+    <tr>
+    <td>negative regulation of transcription regulatory region DNA binding (GO:2000678)</td>
+    <td align="right">0.120223158301648</td>
+    </tr>
+    <tr>
+    <td>cell wall macromolecule catabolic process (GO:0016998)</td>
+    <td align="right">0.10329135840425</td>
+    </tr>
+    <tr>
+    <td>cilium or flagellum-dependent cell motility (GO:0001539)</td>
+    <td align="right">0.100756450474888</td>
+    </tr>
+    <tr>
+    <td>positive regulation of tyrosine phosphorylation of Stat5 protein (GO:0042523)</td>
+    <td align="right">0.100004323426991</td>
+    </tr>
+    <tr>
+    <td>killing of cells of other organism (GO:0031640)</td>
+    <td align="right">0.099454893780098</td>
+    </tr>
+    <tr>
+    <td>disruption of cells of other organism (GO:0044364)</td>
+    <td align="right">0.099454893780098</td>
+    </tr>
+    <tr>
+    <td>mast cell activation involved in immune response (GO:0002279)</td>
+    <td align="right">0.0894911539523277</td>
+    </tr>
+    <tr>
+    <td>mast cell degranulation (GO:0043303)</td>
+    <td align="right">0.0894911539523277</td>
+    </tr>
+    <tr>
+    <td>cell wall macromolecule metabolic process (GO:0044036)</td>
+    <td align="right">0.08403917775799</td>
+    </tr>
+    <tr>
+    <td>detection of mechanical stimulus involved in sensory perception of sound (GO:0050910)</td>
+    <td align="right">0.0789089690215504</td>
+    </tr>
+    <tr>
+    <td>gonadal mesoderm development (GO:0007506)</td>
+    <td align="right">0.0771330561459708</td>
+    </tr>
+    <tr>
+    <td>NADH dehydrogenase complex assembly (GO:0010257)</td>
+    <td align="right">0.075113235578472</td>
+    </tr>
+    <tr>
+    <td>mitochondrial respiratory chain complex I biogenesis (GO:0097031)</td>
+    <td align="right">0.075113235578472</td>
+    </tr>
+    <tr>
+    <td>mitochondrial respiratory chain complex I assembly (GO:0032981)</td>
+    <td align="right">0.075113235578472</td>
+    </tr>
+    <tr>
+    <td>mitochondrial electron transport NADH to ubiquinone (GO:0006120)</td>
+    <td align="right">0.0724670902493272</td>
+    </tr>
+    <tr>
+    <td>regulation of single stranded viral RNA replication via double stranded DNA intermediate (GO:0045091)</td>
+    <td align="right">0.0714644795993173</td>
+    </tr>
+    <tr>
+    <td>somatic hypermutation of immunoglobulin genes (GO:0016446)</td>
+    <td align="right">0.0632896394144973</td>
+    </tr>
+    <tr>
+    <td>somatic diversification of immune receptors via somatic mutation (GO:0002566)</td>
+    <td align="right">0.0632896394144973</td>
+    </tr>
+    <tr>
+    <td>respiratory chain complex IV assembly (GO:0008535)</td>
+    <td align="right">0.0527802743907695</td>
+    </tr>
+    <tr>
+    <td>ATP synthesis coupled proton transport (GO:0015986)</td>
+    <td align="right">0.0522000217233003</td>
+    </tr>
+    <tr>
+    <td>energy coupled proton transport down electrochemical gradient (GO:0015985)</td>
+    <td align="right">0.0522000217233003</td>
+    </tr>
+    <tr>
+    <td>water-soluble vitamin biosynthetic process (GO:0042364)</td>
+    <td align="right">0.0469501193089269</td>
+    </tr>
+    <tr>
+    <td>regulation of neurotransmitter uptake (GO:0051580)</td>
+    <td align="right">0.044239598486572</td>
+    </tr>
+    <tr>
+    <td>regulation of nuclear cell cycle DNA replication (GO:0033262)</td>
+    <td align="right">0.0441205016536273</td>
+    </tr>
+    </tbody></table>
+
+    </div>
+
+
+    <div id='footer'>
+      <div class="row" >
+        <div id='footer_text_container' class="col-xs-12 footer_section">
+          <div class=" footer_text">Developed by the <a class='blue_links' target="_blank"  href="http://icahn.mssm.edu/research/labs/maayan-laboratory">Ma'ayan Lab</a> at the <a class='blue_links' target="_blank"   href="http://icahn.mssm.edu/">Icahn School of Medicine at Mount Sinai</a>  for the <a target="_blank" href="http://commonfund.nih.gov/idg/overview">KMC-IDG</a>  </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</body>
+</html>
