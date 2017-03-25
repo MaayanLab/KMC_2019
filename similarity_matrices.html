@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- <base href='/clustergrammer/'> -->
+
+    <title>KMC 2017</title>
+
+    <link rel="shortcut icon" href="static/icons/graham_cracker.ico"  type="image/x-icon">
+
+    <link rel="stylesheet" href="lib/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+
+    <style type="text/css">
+
+      /* Sticky footer styles
+      -------------------------------------------------- */
+      html, body {
+        max-width: 100%;
+        overflow-x:hidden;
+      }
+
+      /* Wrapper for page content to push down footer */
+      /* Negative indent footer by its height */
+      /* Pad bottom by footer height */
+      #wrap {
+        min-height: 100%;
+        min-width: 800px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #footer {
+        height: 60px;
+        background-color: #f5f5f5;
+        text-align: center;
+        background-color: #f5f5f5;
+        font-size: 13px;
+        padding-left:10px;
+        padding-right:10px;
+        margin-top: 50px;
+      }
+
+      #footer_text_container{
+        margin-top: 10px;
+        margin-bottom: 0px;
+        min-width: 950px;
+      }
+
+      .clustergrammer_container{
+        width: 1140px;
+        height: 750px;
+        margin-bottom: 10px;
+        overflow: hidden;
+      }
+
+      .viz_title{
+        width: 100%;
+        font-size: 30px;
+        font-weight: 400;
+        /*margin-left: -10px;*/
+        margin-top: 10px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #DEDEDE;
+      }
+
+      .viz_description{
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 10px;
+        margin-left: 5px;
+        margin-right: 20px;
+        text-align: justify;
+        margin-bottom: 30px;
+      }
+
+    </style>
+
+</head>
+
+<body>
+
+  <div id="wrap" class='container'>
+
+    <div class='row viz_title' id='clustergram_title' style='white-space: nowrap; margin-left: 5px;'>
+      <p id='example_title'>Omics Mining for the Illuminating the Druggable Genome Project</p>
+    </div>
+
+    <p style='font-size: 25px; margin-bottom: 15px;'>Characterizing 'Dark' Proteins using Similarity Matrices</p>
+
+    <div id='dropdown_container' style='margin-top: 5px; margin-bottom: 10px;'>
+
+      <div class="dropdown" style="display: inline-block;">
+        <button class="btn btn-default dropdown-toggle dropdown_button" type="button" id="protein_class" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Kinase
+          <span class="caret"></span>
+        </button>
+        <ul class='dropdown-menu' id="dropdown_menu_1" aria-labelledby="dropdownMenu1">
+          <li><a href="#" data-value="KIN">Kinase</a></li>
+          <li><a href="#" data-value="IC">Ion Channel</a></li>
+          <li><a href="#" data-value="GPCR">GPCR</a></li>
+        </ul>
+      </div>
+
+      <div  class='title_text' style="display: inline-block;">
+        Similarity based on
+      </div>
+
+
+      <div class="dropdown" style="display: inline-block;">
+        <button class="btn btn-default dropdown-toggle dropdown_button" type="button" id="protein_class" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          CCLE Gene Expression
+          <span class="caret"></span>
+        </button>
+        <ul class='dropdown-menu' id="dropdown_menu_2" aria-labelledby="dropdownMenu1">
+          <li><a href="#" data-value="ccle">CCLE Gene Expression</a></li>
+          <li><a href="#" data-value="gtex">GTEx Gene Expression</a></li>
+          <li><a href="#" data-value="encode">ENCODE TF Targets</a></li>
+          <li><a href="#" data-value="chea">ChEA TF Targets</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+
+    <div class="row" >
+      <div id='container-id-1' class='clustergrammer_container'>
+          <div class='wait_message'>Please wait ...</div>
+      </div>
+    </div>
+
+    <h3 class='page_headers'>About</h3>
+
+    <div class='row viz_description' id='clustergram_desc'>
+      <p>
+        The above similarity matrix shows protein-protein similarity (e.g. kinase-kinase) based on biological data (e.g. CCLE expression across cancer cell lines). Understudied or 'Dark Genes' are shown using row and column categories (e.g Dark genes are shown with the gold color), which enables us to find associations between understudied and more well known genes through clustering.
+
+        Use the dropdowns to toggle between different protein classes: Kinases, Ion Channels, and GPCRs; and different data-sets: CCLE Gene Expression, GTEx Gene Expression, ENCODE TF Targets, and ChEA TF Targets.
+
+      </p>
+
+      <p>
+        The rows/columns have been hierarchically clustered, using the SciPy library in Python (using cosine distance for real valued data and Jaccard distance for binary data). Red/blue cells in the matrix represent positive/negative similarity values. The visualization is interactive (zoomable, reorderable, etc; see <a href="http://clustergrammer.readthedocs.io/interacting_with_viz.html">Interacting with the Visualization</a> for more information) and was produced using <a href="http://clustergrammer.readthedocs.io/">Clustergrammer</a>.
+      </p>
+    </div>
+
+    <h3 class='page_headers'>
+      <a name='notebooks'></a>
+      Exploratory Jupyter Notebooks
+    </h3>
+    <div class='row viz_description' id='clustergram_desc'>
+      <p>
+        We used Jupyter notebooks to more closely explore protein-protein similarity based on CCLE gene expression and identify common biological themes in the protein-clusters.
+      </p>
+
+      <h4>Kinase Notebook</h4>
+      <p>
+        We identified a cluster of co-expressed mitosis-related kinases that includes three dark kinases (PKMYT1, PKN3, and NEK4). We conclude that these dark kinases may be involved in mitosis and show that this cluster of kinases is highly expressed in Haematopoietic and Lymphoid tissues from the CCLE, which are known to be highly proliferative. <a href="http://nbviewer.jupyter.org/github/MaayanLab/KMC_2017/blob/master/notebooks/Inter_Dark_Kinase_Function_from_Clustering.ipynb">Link to notebook.</a>
+      </p>
+
+      <h4>Ion Channel Notebook</h4>
+      <p>
+
+        We identified two clusters of co-expressed Ion Channels with enrichment for cardiac and addiction pathways (enrichment analysis was done using <a href="http://amp.pharm.mssm.edu/Enrichr/">Enrichr</a>). These clusters include dark Ion Channels and can help us understand their biological function.
+        <a href="http://nbviewer.jupyter.org/github/MaayanLab/KMC_2017/blob/master/notebooks/Infer_Dark_Ion_Channel_Function_from_Clustering.ipynb">Link to notebook.</a>
+      </p>
+
+      <h4>GPCR Notebook</h4>
+      <p>
+
+        We identified a cluster of co-expressed GPCRs with enrichment for immune-related pathways (e.g. cytokine signaling; enrichment analysis was done using <a href="http://amp.pharm.mssm.edu/Enrichr/">Enrichr</a>). Additionally, these genes are highly expressed in haematopoietic and lymphoid tissues, which agrees with their enrichment results. This cluster also includes several dark GPCRs, which we can conclude may play a role in the immune system.
+
+        <a href="http://nbviewer.jupyter.org/github/MaayanLab/KMC_2017/blob/master/notebooks/Infer_Dark_GPCR_Function_from_Clustering.ipynb">Link to notebook.</a>
+
+      </p>
+
+
+    </div>
+
+<!--
+    <div class='row viz_title' id='col_sim_title'>
+      Column Similarity Matrix
+    </div>
+
+    <div class="row" >
+      <div id='container-id-2' class='clustergrammer_container sim_mat_container'>
+          <div class='wait_message'>Please wait ...</div>
+      </div>
+    </div>
+
+    <div class='row viz_description' id='col_sim_desc'>
+      <p>Above is a similarity matrix of the columns in your input matrix. The cells in the matrix represent the similarity between columns, where red/blue represent positive/negative similarity (measured as 1 - cosine-distance). Similarity matrices offer a more detailed view of the similarities and differences between rows/columms, e.g. blue cells indicate data points that behave 'oppositely' and this can not be easily seen in a clustergram/heatmap view.</p>
+    </div>
+
+
+
+    <div class='row viz_title' id='row_sim_title'>
+      Row Similarity Matrix
+    </div>
+
+    <div class="row" >
+      <div id='container-id-3' class='clustergrammer_container sim_mat_container'>
+          <div class='wait_message'>Please wait ...</div>
+      </div>
+    </div>
+
+    <div class='row viz_description' id='row_sim_desc'>
+      <p>Above is a similarity matrix of the rows in your input matrix. The cells in the matrix represent the similarity between rows, where red/blue represent positive/negative similarity (measured as 1 - cosine-distance). </p>
+    </div>
+ -->
+
+  </div>
+<!--
+  <div id='footer'>
+    <div class="row" >
+      <div id='footer_text_container' class="col-xs-12 footer_section">
+        <div class="text-muted footer_text">Clustergrammer is being developed by the <a class='blue_links' target="_blank"  href="http://icahn.mssm.edu/research/labs/maayan-laboratory">Ma'ayan Lab</a> at the <a class='blue_links' target="_blank"   href="http://icahn.mssm.edu/">Icahn School of Medicine at Mount Sinai</a>  for the <a target="_blank" href="http://lincs-dcic.org/">BD2K-LINCS DCIC</a> and the <a target="_blank" href="http://commonfund.nih.gov/idg/overview">KMC-IDG</a>  </div>
+        <div class="text-muted footer_text">
+        and is an open source project available on GitHub: <a class='blue_links' target="_blank"  href="https://github.com/MaayanLab/clustergrammer">Clustergrammer</a> and <a class='blue_links' target="_blank"  href="https://github.com/cornhundred/clustergrammer.js">Clustergrammer.js</a>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+ -->
+  <!-- Required JS Libraries -->
+  <script src="lib/js/d3.js"></script>
+  <script src="lib/js/jquery-1.11.2.min.js"></script>
+  <script src="lib/js/underscore-min.js"></script>
+  <script src="lib/js/bootstrap.min.js"></script>
+
+  <!-- Clustergrammer JS -->
+  <script src='js/clustergrammer.min.js'></script>
+
+
+  <!-- optional modules -->
+  <script src='js/Enrichrgram.js'></script>
+  <script src='js/hzome_functions.js'></script>
+  <script src='js/send_to_Enrichr.js'></script>
+
+  <!-- make clustergrams -->
+  <script src='js/load_multiple_clustergrams.js'></script>
+
+</body>
+
