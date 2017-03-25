@@ -5,414 +5,503 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+
+      /* Sticky footer styles
+      -------------------------------------------------- */
+      html, body {
+        max-width: 100%;
+        overflow-x:hidden;
+      }
+
+      /* Wrapper for page content to push down footer */
+      /* Negative indent footer by its height */
+      /* Pad bottom by footer height */
+      #wrap {
+        min-height: 100%;
+        min-width: 800px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #footer {
+        height: 60px;
+        text-align: center;
+        font-size: 13px;
+        padding-left:10px;
+        padding-right:10px;
+        margin-top: 15px;
+        padding-top: 10px;
+        border-top: 1px solid #DEDEDE;
+        font-weight: 300;
+      }
+
+      #footer_text_container{
+        margin-top: 10px;
+        margin-bottom: 0px;
+        min-width: 950px;
+      }
+
+      .clustergrammer_container{
+        width: 1140px;
+        height: 750px;
+        margin-bottom: 10px;
+        overflow: hidden;
+      }
+
+      .viz_title{
+        width: 100%;
+        font-size: 30px;
+        font-weight: 300;
+        /*margin-left: -10px;*/
+        margin-top: 10px;
+        margin-bottom: 5px;
+        border-bottom: 1px solid #DEDEDE;
+      }
+
+      .viz_description{
+        font-size: 16px;
+        font-weight: 300;
+        margin-top: 10px;
+        margin-left: 5px;
+        margin-right: 20px;
+        text-align: justify;
+        margin-bottom: 30px;
+      }
+
+    </style>
+
 </head>
 <body>
 
-<div class="container">
-  <h2>PKN3</h2>
-  <p>Top 200 predicted GO terms</p>
+  <div id="wrap" class='container'>
 
-<table class="table table-bordered table-hover table-condensed table-striped">
-<tbody>
-<tr><th>Go term</th><th>Z-score</th></tr>
-<tr>
-<td>peripheral nervous system neuron development (GO:0048935)</td>
-<td align="right">2.10091368531219</td>
-</tr>
-<tr>
-<td>embryonic skeletal joint morphogenesis (GO:0060272)</td>
-<td align="right">1.9315126958642</td>
-</tr>
-<tr>
-<td>chromosome condensation (GO:0030261)</td>
-<td align="right">1.92196490229554</td>
-</tr>
-<tr>
-<td>urogenital system development (GO:0001655)</td>
-<td align="right">1.91703107911047</td>
-</tr>
-<tr>
-<td>positive regulation of cytokinesis (GO:0032467)</td>
-<td align="right">1.91565181954323</td>
-</tr>
-<tr>
-<td>fat-soluble vitamin catabolic process (GO:0042363)</td>
-<td align="right">1.88837254768789</td>
-</tr>
-<tr>
-<td>vitamin catabolic process (GO:0009111)</td>
-<td align="right">1.88837254768789</td>
-</tr>
-<tr>
-<td>thyroid gland development (GO:0030878)</td>
-<td align="right">1.8653494359751</td>
-</tr>
-<tr>
-<td>response to vitamin A (GO:0033189)</td>
-<td align="right">1.86359756086298</td>
-</tr>
-<tr>
-<td>proximal/distal pattern formation (GO:0009954)</td>
-<td align="right">1.86259147173486</td>
-</tr>
-<tr>
-<td>trophoblast giant cell differentiation (GO:0060707)</td>
-<td align="right">1.86153161217766</td>
-</tr>
-<tr>
-<td>anterior/posterior pattern specification (GO:0009952)</td>
-<td align="right">1.86152647090562</td>
-</tr>
-<tr>
-<td>dorsal/ventral neural tube patterning (GO:0021904)</td>
-<td align="right">1.85796019343017</td>
-</tr>
-<tr>
-<td>cell fate specification (GO:0001708)</td>
-<td align="right">1.85153901569784</td>
-</tr>
-<tr>
-<td>muscle organ morphogenesis (GO:0048644)</td>
-<td align="right">1.85027145602525</td>
-</tr>
-<tr>
-<td>heterochromatin organization (GO:0070828)</td>
-<td align="right">1.84857645753004</td>
-</tr>
-<tr>
-<td>embryonic skeletal system morphogenesis (GO:0048704)</td>
-<td align="right">1.84120185908728</td>
-</tr>
-<tr>
-<td>embryonic heart tube development (GO:0035050)</td>
-<td align="right">1.83843548952339</td>
-</tr>
-<tr>
-<td>regulation of retinoic acid receptor signaling pathway (GO:0048385)</td>
-<td align="right">1.83485213789609</td>
-</tr>
-<tr>
-<td>apoptotic process involved in morphogenesis (GO:0060561)</td>
-<td align="right">1.82108053112795</td>
-</tr>
-<tr>
-<td>negative regulation of Notch signaling pathway (GO:0045746)</td>
-<td align="right">1.82087715065361</td>
-</tr>
-<tr>
-<td>DNA replication initiation (GO:0006270)</td>
-<td align="right">1.8155797020436</td>
-</tr>
-<tr>
-<td>positive regulation of megakaryocyte differentiation (GO:0045654)</td>
-<td align="right">1.81516211955206</td>
-</tr>
-<tr>
-<td>chromosome organization involved in meiosis (GO:0070192)</td>
-<td align="right">1.81385958862439</td>
-</tr>
-<tr>
-<td>protein localization to chromosome, centromeric region (GO:0071459)</td>
-<td align="right">1.80989816322825</td>
-</tr>
-<tr>
-<td>negative regulation of cell fate specification (GO:0009996)</td>
-<td align="right">1.80977864424099</td>
-</tr>
-<tr>
-<td>mitotic sister chromatid segregation (GO:0000070)</td>
-<td align="right">1.80929888555661</td>
-</tr>
-<tr>
-<td>DNA packaging (GO:0006323)</td>
-<td align="right">1.80870539190905</td>
-</tr>
-<tr>
-<td>regulation of transcription involved in G1/S transition of mitotic cell cycle (GO:0000083)</td>
-<td align="right">1.79924327425702</td>
-</tr>
-<tr>
-<td>regulation of mitotic spindle organization (GO:0060236)</td>
-<td align="right">1.79912820947856</td>
-</tr>
-<tr>
-<td>mesoderm development (GO:0007498)</td>
-<td align="right">1.79326502503342</td>
-</tr>
-<tr>
-<td>DNA unwinding involved in DNA replication (GO:0006268)</td>
-<td align="right">1.79198829645729</td>
-</tr>
-<tr>
-<td>mitotic chromosome condensation (GO:0007076)</td>
-<td align="right">1.79166909622152</td>
-</tr>
-<tr>
-<td>muscle cell fate commitment (GO:0042693)</td>
-<td align="right">1.78827558454197</td>
-</tr>
-<tr>
-<td>positive regulation of DNA-dependent DNA replication (GO:2000105)</td>
-<td align="right">1.78172756794244</td>
-</tr>
-<tr>
-<td>diaphragm development (GO:0060539)</td>
-<td align="right">1.77486260727182</td>
-</tr>
-<tr>
-<td>embryonic organ morphogenesis (GO:0048562)</td>
-<td align="right">1.76675589568894</td>
-</tr>
-<tr>
-<td>apoptotic process involved in development (GO:1902742)</td>
-<td align="right">1.76594461393426</td>
-</tr>
-<tr>
-<td>sister chromatid segregation (GO:0000819)</td>
-<td align="right">1.76489884245787</td>
-</tr>
-<tr>
-<td>hepatocyte differentiation (GO:0070365)</td>
-<td align="right">1.76489181232505</td>
-</tr>
-<tr>
-<td>skeletal system morphogenesis (GO:0048705)</td>
-<td align="right">1.76017828926561</td>
-</tr>
-<tr>
-<td>mesenchymal to epithelial transition (GO:0060231)</td>
-<td align="right">1.75602367092164</td>
-</tr>
-<tr>
-<td>primitive streak formation (GO:0090009)</td>
-<td align="right">1.7454953179945</td>
-</tr>
-<tr>
-<td>regulation of spindle organization (GO:0090224)</td>
-<td align="right">1.74508403579074</td>
-</tr>
-<tr>
-<td>skeletal muscle organ development (GO:0060538)</td>
-<td align="right">1.74361719116478</td>
-</tr>
-<tr>
-<td>ventricular cardiac muscle cell development (GO:0055015)</td>
-<td align="right">1.74322470146202</td>
-</tr>
-<tr>
-<td>synaptonemal complex assembly (GO:0007130)</td>
-<td align="right">1.74303982058866</td>
-</tr>
-<tr>
-<td>proline biosynthetic process (GO:0006561)</td>
-<td align="right">1.74275318336719</td>
-</tr>
-<tr>
-<td>cell fate commitment (GO:0045165)</td>
-<td align="right">1.7417152450583</td>
-</tr>
-<tr>
-<td>regulation of mammary gland epithelial cell proliferation (GO:0033599)</td>
-<td align="right">1.73832121566371</td>
-</tr>
-<tr>
-<td>regionalization (GO:0003002)</td>
-<td align="right">1.73221025349442</td>
-</tr>
-<tr>
-<td>DNA replication checkpoint (GO:0000076)</td>
-<td align="right">1.73142767990564</td>
-</tr>
-<tr>
-<td>middle ear morphogenesis (GO:0042474)</td>
-<td align="right">1.72919653183708</td>
-</tr>
-<tr>
-<td>histone phosphorylation (GO:0016572)</td>
-<td align="right">1.72771840925976</td>
-</tr>
-<tr>
-<td>post-anal tail morphogenesis (GO:0036342)</td>
-<td align="right">1.72468124886145</td>
-</tr>
-<tr>
-<td>atrioventricular valve morphogenesis (GO:0003181)</td>
-<td align="right">1.72434966187079</td>
-</tr>
-<tr>
-<td>proline metabolic process (GO:0006560)</td>
-<td align="right">1.722739769077</td>
-</tr>
-<tr>
-<td>meiotic chromosome segregation (GO:0045132)</td>
-<td align="right">1.72219335440312</td>
-</tr>
-<tr>
-<td>regulation of somitogenesis (GO:0014807)</td>
-<td align="right">1.72140541080732</td>
-</tr>
-<tr>
-<td>outflow tract septum morphogenesis (GO:0003148)</td>
-<td align="right">1.71006980176329</td>
-</tr>
-<tr>
-<td>anatomical structure regression (GO:0060033)</td>
-<td align="right">1.70956237513707</td>
-</tr>
-<tr>
-<td>DNA strand elongation (GO:0022616)</td>
-<td align="right">1.70847478254719</td>
-</tr>
-<tr>
-<td>protein localization to chromosome (GO:0034502)</td>
-<td align="right">1.70826144459007</td>
-</tr>
-<tr>
-<td>morphogenesis of embryonic epithelium (GO:0016331)</td>
-<td align="right">1.70816951067337</td>
-</tr>
-<tr>
-<td>heart valve formation (GO:0003188)</td>
-<td align="right">1.70531070971066</td>
-</tr>
-<tr>
-<td>neuron fate commitment (GO:0048663)</td>
-<td align="right">1.7047284023078</td>
-</tr>
-<tr>
-<td>cell migration involved in gastrulation (GO:0042074)</td>
-<td align="right">1.70438474081067</td>
-</tr>
-<tr>
-<td>DNA strand renaturation (GO:0000733)</td>
-<td align="right">1.70402281646223</td>
-</tr>
-<tr>
-<td>protein complex localization (GO:0031503)</td>
-<td align="right">1.7038633032982</td>
-</tr>
-<tr>
-<td>regulation of mesenchymal cell apoptotic process (GO:2001053)</td>
-<td align="right">1.69942133110633</td>
-</tr>
-<tr>
-<td>motile cilium assembly (GO:0044458)</td>
-<td align="right">1.69930689892116</td>
-</tr>
-<tr>
-<td>ventricular septum morphogenesis (GO:0060412)</td>
-<td align="right">1.69749109471526</td>
-</tr>
-<tr>
-<td>atrial septum morphogenesis (GO:0060413)</td>
-<td align="right">1.69731019699408</td>
-</tr>
-<tr>
-<td>protein localization to kinetochore (GO:0034501)</td>
-<td align="right">1.69701335712621</td>
-</tr>
-<tr>
-<td>folic acid metabolic process (GO:0046655)</td>
-<td align="right">1.69474282923235</td>
-</tr>
-<tr>
-<td>endoderm development (GO:0007492)</td>
-<td align="right">1.69433911701308</td>
-</tr>
-<tr>
-<td>heart trabecula formation (GO:0060347)</td>
-<td align="right">1.69219743904255</td>
-</tr>
-<tr>
-<td>regulation of exit from mitosis (GO:0007096)</td>
-<td align="right">1.68511699725263</td>
-</tr>
-<tr>
-<td>mitotic metaphase plate congression (GO:0007080)</td>
-<td align="right">1.68299130878501</td>
-</tr>
-<tr>
-<td>response to food (GO:0032094)</td>
-<td align="right">1.68193334261508</td>
-</tr>
-<tr>
-<td>inner ear morphogenesis (GO:0042472)</td>
-<td align="right">1.68033062910655</td>
-</tr>
-<tr>
-<td>mesonephros development (GO:0001823)</td>
-<td align="right">1.67850107610252</td>
-</tr>
-<tr>
-<td>regulation of lipoprotein particle clearance (GO:0010984)</td>
-<td align="right">1.67438007152765</td>
-</tr>
-<tr>
-<td>pharyngeal system development (GO:0060037)</td>
-<td align="right">1.67281140143056</td>
-</tr>
-<tr>
-<td>placenta development (GO:0001890)</td>
-<td align="right">1.67212935514567</td>
-</tr>
-<tr>
-<td>DNA strand elongation involved in DNA replication (GO:0006271)</td>
-<td align="right">1.66783103854584</td>
-</tr>
-<tr>
-<td>establishment of apical/basal cell polarity (GO:0035089)</td>
-<td align="right">1.66725332971824</td>
-</tr>
-<tr>
-<td>melanin biosynthetic process (GO:0042438)</td>
-<td align="right">1.66637466008601</td>
-</tr>
-<tr>
-<td>microtubule depolymerization (GO:0007019)</td>
-<td align="right">1.66608521249453</td>
-</tr>
-<tr>
-<td>embryonic forelimb morphogenesis (GO:0035115)</td>
-<td align="right">1.66553017784397</td>
-</tr>
-<tr>
-<td>DNA conformation change (GO:0071103)</td>
-<td align="right">1.66380774744204</td>
-</tr>
-<tr>
-<td>C21-steroid hormone biosynthetic process (GO:0006700)</td>
-<td align="right">1.66370255299781</td>
-</tr>
-<tr>
-<td>morphogenesis of an epithelial fold (GO:0060571)</td>
-<td align="right">1.66216105128379</td>
-</tr>
-<tr>
-<td>regulation of transcription involved in cell fate commitment (GO:0060850)</td>
-<td align="right">1.66121419933487</td>
-</tr>
-<tr>
-<td>regulation of stem cell maintenance (GO:2000036)</td>
-<td align="right">1.65808744434741</td>
-</tr>
-<tr>
-<td>positive regulation of hematopoietic progenitor cell differentiation (GO:1901534)</td>
-<td align="right">1.65466166346484</td>
-</tr>
-<tr>
-<td>odontogenesis of dentin-containing tooth (GO:0042475)</td>
-<td align="right">1.65298421580296</td>
-</tr>
-<tr>
-<td>somite rostral/caudal axis specification (GO:0032525)</td>
-<td align="right">1.65256144620006</td>
-</tr>
-<tr>
-<td>sensory perception of taste (GO:0050909)</td>
-<td align="right">1.65136526251834</td>
-</tr>
-<tr>
-<td>peptidyl-arginine omega-N-methylation (GO:0035247)</td>
-<td align="right">1.64753457012544</td>
-</tr>
-</tbody></table>
+    <div class='row viz_title' id='clustergram_title' style='white-space: nowrap; margin-left: 5px;'>
+      <p id='example_title'>Omics Mining for the Illuminating the Druggable Genome Project</p>
+    </div>
+
+    <div class="container">
+      <h2>PKN3</h2>
+      <p>Top 200 predicted GO terms</p>
+
+    <table class="table table-bordered table-hover table-condensed table-striped">
+    <tbody>
+    <tr><th>Go term</th><th>Z-score</th></tr>
+    <tr>
+    <td>peripheral nervous system neuron development (GO:0048935)</td>
+    <td align="right">2.10091368531219</td>
+    </tr>
+    <tr>
+    <td>embryonic skeletal joint morphogenesis (GO:0060272)</td>
+    <td align="right">1.9315126958642</td>
+    </tr>
+    <tr>
+    <td>chromosome condensation (GO:0030261)</td>
+    <td align="right">1.92196490229554</td>
+    </tr>
+    <tr>
+    <td>urogenital system development (GO:0001655)</td>
+    <td align="right">1.91703107911047</td>
+    </tr>
+    <tr>
+    <td>positive regulation of cytokinesis (GO:0032467)</td>
+    <td align="right">1.91565181954323</td>
+    </tr>
+    <tr>
+    <td>fat-soluble vitamin catabolic process (GO:0042363)</td>
+    <td align="right">1.88837254768789</td>
+    </tr>
+    <tr>
+    <td>vitamin catabolic process (GO:0009111)</td>
+    <td align="right">1.88837254768789</td>
+    </tr>
+    <tr>
+    <td>thyroid gland development (GO:0030878)</td>
+    <td align="right">1.8653494359751</td>
+    </tr>
+    <tr>
+    <td>response to vitamin A (GO:0033189)</td>
+    <td align="right">1.86359756086298</td>
+    </tr>
+    <tr>
+    <td>proximal/distal pattern formation (GO:0009954)</td>
+    <td align="right">1.86259147173486</td>
+    </tr>
+    <tr>
+    <td>trophoblast giant cell differentiation (GO:0060707)</td>
+    <td align="right">1.86153161217766</td>
+    </tr>
+    <tr>
+    <td>anterior/posterior pattern specification (GO:0009952)</td>
+    <td align="right">1.86152647090562</td>
+    </tr>
+    <tr>
+    <td>dorsal/ventral neural tube patterning (GO:0021904)</td>
+    <td align="right">1.85796019343017</td>
+    </tr>
+    <tr>
+    <td>cell fate specification (GO:0001708)</td>
+    <td align="right">1.85153901569784</td>
+    </tr>
+    <tr>
+    <td>muscle organ morphogenesis (GO:0048644)</td>
+    <td align="right">1.85027145602525</td>
+    </tr>
+    <tr>
+    <td>heterochromatin organization (GO:0070828)</td>
+    <td align="right">1.84857645753004</td>
+    </tr>
+    <tr>
+    <td>embryonic skeletal system morphogenesis (GO:0048704)</td>
+    <td align="right">1.84120185908728</td>
+    </tr>
+    <tr>
+    <td>embryonic heart tube development (GO:0035050)</td>
+    <td align="right">1.83843548952339</td>
+    </tr>
+    <tr>
+    <td>regulation of retinoic acid receptor signaling pathway (GO:0048385)</td>
+    <td align="right">1.83485213789609</td>
+    </tr>
+    <tr>
+    <td>apoptotic process involved in morphogenesis (GO:0060561)</td>
+    <td align="right">1.82108053112795</td>
+    </tr>
+    <tr>
+    <td>negative regulation of Notch signaling pathway (GO:0045746)</td>
+    <td align="right">1.82087715065361</td>
+    </tr>
+    <tr>
+    <td>DNA replication initiation (GO:0006270)</td>
+    <td align="right">1.8155797020436</td>
+    </tr>
+    <tr>
+    <td>positive regulation of megakaryocyte differentiation (GO:0045654)</td>
+    <td align="right">1.81516211955206</td>
+    </tr>
+    <tr>
+    <td>chromosome organization involved in meiosis (GO:0070192)</td>
+    <td align="right">1.81385958862439</td>
+    </tr>
+    <tr>
+    <td>protein localization to chromosome, centromeric region (GO:0071459)</td>
+    <td align="right">1.80989816322825</td>
+    </tr>
+    <tr>
+    <td>negative regulation of cell fate specification (GO:0009996)</td>
+    <td align="right">1.80977864424099</td>
+    </tr>
+    <tr>
+    <td>mitotic sister chromatid segregation (GO:0000070)</td>
+    <td align="right">1.80929888555661</td>
+    </tr>
+    <tr>
+    <td>DNA packaging (GO:0006323)</td>
+    <td align="right">1.80870539190905</td>
+    </tr>
+    <tr>
+    <td>regulation of transcription involved in G1/S transition of mitotic cell cycle (GO:0000083)</td>
+    <td align="right">1.79924327425702</td>
+    </tr>
+    <tr>
+    <td>regulation of mitotic spindle organization (GO:0060236)</td>
+    <td align="right">1.79912820947856</td>
+    </tr>
+    <tr>
+    <td>mesoderm development (GO:0007498)</td>
+    <td align="right">1.79326502503342</td>
+    </tr>
+    <tr>
+    <td>DNA unwinding involved in DNA replication (GO:0006268)</td>
+    <td align="right">1.79198829645729</td>
+    </tr>
+    <tr>
+    <td>mitotic chromosome condensation (GO:0007076)</td>
+    <td align="right">1.79166909622152</td>
+    </tr>
+    <tr>
+    <td>muscle cell fate commitment (GO:0042693)</td>
+    <td align="right">1.78827558454197</td>
+    </tr>
+    <tr>
+    <td>positive regulation of DNA-dependent DNA replication (GO:2000105)</td>
+    <td align="right">1.78172756794244</td>
+    </tr>
+    <tr>
+    <td>diaphragm development (GO:0060539)</td>
+    <td align="right">1.77486260727182</td>
+    </tr>
+    <tr>
+    <td>embryonic organ morphogenesis (GO:0048562)</td>
+    <td align="right">1.76675589568894</td>
+    </tr>
+    <tr>
+    <td>apoptotic process involved in development (GO:1902742)</td>
+    <td align="right">1.76594461393426</td>
+    </tr>
+    <tr>
+    <td>sister chromatid segregation (GO:0000819)</td>
+    <td align="right">1.76489884245787</td>
+    </tr>
+    <tr>
+    <td>hepatocyte differentiation (GO:0070365)</td>
+    <td align="right">1.76489181232505</td>
+    </tr>
+    <tr>
+    <td>skeletal system morphogenesis (GO:0048705)</td>
+    <td align="right">1.76017828926561</td>
+    </tr>
+    <tr>
+    <td>mesenchymal to epithelial transition (GO:0060231)</td>
+    <td align="right">1.75602367092164</td>
+    </tr>
+    <tr>
+    <td>primitive streak formation (GO:0090009)</td>
+    <td align="right">1.7454953179945</td>
+    </tr>
+    <tr>
+    <td>regulation of spindle organization (GO:0090224)</td>
+    <td align="right">1.74508403579074</td>
+    </tr>
+    <tr>
+    <td>skeletal muscle organ development (GO:0060538)</td>
+    <td align="right">1.74361719116478</td>
+    </tr>
+    <tr>
+    <td>ventricular cardiac muscle cell development (GO:0055015)</td>
+    <td align="right">1.74322470146202</td>
+    </tr>
+    <tr>
+    <td>synaptonemal complex assembly (GO:0007130)</td>
+    <td align="right">1.74303982058866</td>
+    </tr>
+    <tr>
+    <td>proline biosynthetic process (GO:0006561)</td>
+    <td align="right">1.74275318336719</td>
+    </tr>
+    <tr>
+    <td>cell fate commitment (GO:0045165)</td>
+    <td align="right">1.7417152450583</td>
+    </tr>
+    <tr>
+    <td>regulation of mammary gland epithelial cell proliferation (GO:0033599)</td>
+    <td align="right">1.73832121566371</td>
+    </tr>
+    <tr>
+    <td>regionalization (GO:0003002)</td>
+    <td align="right">1.73221025349442</td>
+    </tr>
+    <tr>
+    <td>DNA replication checkpoint (GO:0000076)</td>
+    <td align="right">1.73142767990564</td>
+    </tr>
+    <tr>
+    <td>middle ear morphogenesis (GO:0042474)</td>
+    <td align="right">1.72919653183708</td>
+    </tr>
+    <tr>
+    <td>histone phosphorylation (GO:0016572)</td>
+    <td align="right">1.72771840925976</td>
+    </tr>
+    <tr>
+    <td>post-anal tail morphogenesis (GO:0036342)</td>
+    <td align="right">1.72468124886145</td>
+    </tr>
+    <tr>
+    <td>atrioventricular valve morphogenesis (GO:0003181)</td>
+    <td align="right">1.72434966187079</td>
+    </tr>
+    <tr>
+    <td>proline metabolic process (GO:0006560)</td>
+    <td align="right">1.722739769077</td>
+    </tr>
+    <tr>
+    <td>meiotic chromosome segregation (GO:0045132)</td>
+    <td align="right">1.72219335440312</td>
+    </tr>
+    <tr>
+    <td>regulation of somitogenesis (GO:0014807)</td>
+    <td align="right">1.72140541080732</td>
+    </tr>
+    <tr>
+    <td>outflow tract septum morphogenesis (GO:0003148)</td>
+    <td align="right">1.71006980176329</td>
+    </tr>
+    <tr>
+    <td>anatomical structure regression (GO:0060033)</td>
+    <td align="right">1.70956237513707</td>
+    </tr>
+    <tr>
+    <td>DNA strand elongation (GO:0022616)</td>
+    <td align="right">1.70847478254719</td>
+    </tr>
+    <tr>
+    <td>protein localization to chromosome (GO:0034502)</td>
+    <td align="right">1.70826144459007</td>
+    </tr>
+    <tr>
+    <td>morphogenesis of embryonic epithelium (GO:0016331)</td>
+    <td align="right">1.70816951067337</td>
+    </tr>
+    <tr>
+    <td>heart valve formation (GO:0003188)</td>
+    <td align="right">1.70531070971066</td>
+    </tr>
+    <tr>
+    <td>neuron fate commitment (GO:0048663)</td>
+    <td align="right">1.7047284023078</td>
+    </tr>
+    <tr>
+    <td>cell migration involved in gastrulation (GO:0042074)</td>
+    <td align="right">1.70438474081067</td>
+    </tr>
+    <tr>
+    <td>DNA strand renaturation (GO:0000733)</td>
+    <td align="right">1.70402281646223</td>
+    </tr>
+    <tr>
+    <td>protein complex localization (GO:0031503)</td>
+    <td align="right">1.7038633032982</td>
+    </tr>
+    <tr>
+    <td>regulation of mesenchymal cell apoptotic process (GO:2001053)</td>
+    <td align="right">1.69942133110633</td>
+    </tr>
+    <tr>
+    <td>motile cilium assembly (GO:0044458)</td>
+    <td align="right">1.69930689892116</td>
+    </tr>
+    <tr>
+    <td>ventricular septum morphogenesis (GO:0060412)</td>
+    <td align="right">1.69749109471526</td>
+    </tr>
+    <tr>
+    <td>atrial septum morphogenesis (GO:0060413)</td>
+    <td align="right">1.69731019699408</td>
+    </tr>
+    <tr>
+    <td>protein localization to kinetochore (GO:0034501)</td>
+    <td align="right">1.69701335712621</td>
+    </tr>
+    <tr>
+    <td>folic acid metabolic process (GO:0046655)</td>
+    <td align="right">1.69474282923235</td>
+    </tr>
+    <tr>
+    <td>endoderm development (GO:0007492)</td>
+    <td align="right">1.69433911701308</td>
+    </tr>
+    <tr>
+    <td>heart trabecula formation (GO:0060347)</td>
+    <td align="right">1.69219743904255</td>
+    </tr>
+    <tr>
+    <td>regulation of exit from mitosis (GO:0007096)</td>
+    <td align="right">1.68511699725263</td>
+    </tr>
+    <tr>
+    <td>mitotic metaphase plate congression (GO:0007080)</td>
+    <td align="right">1.68299130878501</td>
+    </tr>
+    <tr>
+    <td>response to food (GO:0032094)</td>
+    <td align="right">1.68193334261508</td>
+    </tr>
+    <tr>
+    <td>inner ear morphogenesis (GO:0042472)</td>
+    <td align="right">1.68033062910655</td>
+    </tr>
+    <tr>
+    <td>mesonephros development (GO:0001823)</td>
+    <td align="right">1.67850107610252</td>
+    </tr>
+    <tr>
+    <td>regulation of lipoprotein particle clearance (GO:0010984)</td>
+    <td align="right">1.67438007152765</td>
+    </tr>
+    <tr>
+    <td>pharyngeal system development (GO:0060037)</td>
+    <td align="right">1.67281140143056</td>
+    </tr>
+    <tr>
+    <td>placenta development (GO:0001890)</td>
+    <td align="right">1.67212935514567</td>
+    </tr>
+    <tr>
+    <td>DNA strand elongation involved in DNA replication (GO:0006271)</td>
+    <td align="right">1.66783103854584</td>
+    </tr>
+    <tr>
+    <td>establishment of apical/basal cell polarity (GO:0035089)</td>
+    <td align="right">1.66725332971824</td>
+    </tr>
+    <tr>
+    <td>melanin biosynthetic process (GO:0042438)</td>
+    <td align="right">1.66637466008601</td>
+    </tr>
+    <tr>
+    <td>microtubule depolymerization (GO:0007019)</td>
+    <td align="right">1.66608521249453</td>
+    </tr>
+    <tr>
+    <td>embryonic forelimb morphogenesis (GO:0035115)</td>
+    <td align="right">1.66553017784397</td>
+    </tr>
+    <tr>
+    <td>DNA conformation change (GO:0071103)</td>
+    <td align="right">1.66380774744204</td>
+    </tr>
+    <tr>
+    <td>C21-steroid hormone biosynthetic process (GO:0006700)</td>
+    <td align="right">1.66370255299781</td>
+    </tr>
+    <tr>
+    <td>morphogenesis of an epithelial fold (GO:0060571)</td>
+    <td align="right">1.66216105128379</td>
+    </tr>
+    <tr>
+    <td>regulation of transcription involved in cell fate commitment (GO:0060850)</td>
+    <td align="right">1.66121419933487</td>
+    </tr>
+    <tr>
+    <td>regulation of stem cell maintenance (GO:2000036)</td>
+    <td align="right">1.65808744434741</td>
+    </tr>
+    <tr>
+    <td>positive regulation of hematopoietic progenitor cell differentiation (GO:1901534)</td>
+    <td align="right">1.65466166346484</td>
+    </tr>
+    <tr>
+    <td>odontogenesis of dentin-containing tooth (GO:0042475)</td>
+    <td align="right">1.65298421580296</td>
+    </tr>
+    <tr>
+    <td>somite rostral/caudal axis specification (GO:0032525)</td>
+    <td align="right">1.65256144620006</td>
+    </tr>
+    <tr>
+    <td>sensory perception of taste (GO:0050909)</td>
+    <td align="right">1.65136526251834</td>
+    </tr>
+    <tr>
+    <td>peptidyl-arginine omega-N-methylation (GO:0035247)</td>
+    <td align="right">1.64753457012544</td>
+    </tr>
+    </tbody></table>
+    </div>
+
+
+    <div id='footer'>
+      <div class="row" >
+        <div id='footer_text_container' class="col-xs-12 footer_section">
+          <div class=" footer_text">Developed by the <a class='blue_links' target="_blank"  href="http://icahn.mssm.edu/research/labs/maayan-laboratory">Ma'ayan Lab</a> at the <a class='blue_links' target="_blank"   href="http://icahn.mssm.edu/">Icahn School of Medicine at Mount Sinai</a>  for the <a target="_blank" href="http://commonfund.nih.gov/idg/overview">KMC-IDG</a>  </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+</body>
+</html>
