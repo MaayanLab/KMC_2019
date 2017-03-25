@@ -9,21 +9,21 @@
 <body>
 
 <div class="container">
-  <h2>GO term prediction</h2>
-  <p>To predict gene annotation with biological processes from the gene ontology (GO) we first calculate all pairwise gene correlations from the ARCHS4 RNA-seq expression. We then iterate over each of the 5192 biological process terms from the Enrichr gene set library. For each gene we calculate the average correlation of the genes in the gene set. The values are stored in a matrix Cij for i genes and j biological processes. We then z-score normalize all columns of C. Finally for each gene we sort the corresponding row of C ranking the terms on the gene population z-score. Terms with high z-scores are predicted to be accurate annotations for the gene. To show the correctness of the term ranking we calculate the area under the curve (AUC) from the ROC for all genes with annotations in GO. For GO biological processes the average AUC for retrieving already annotated terms is 0.765. </p>
+  <h2>Target Functional Predictions</h2>
+  <p><b>Methods:</b> To predict functions for the under-studied kinases, GPCRs and ion channels, using RNA-seq data from GEO and SRA, an example is provided to show how biological processes from the gene ontology (GO) can be predicted. First, we processed all human and mouse RNA-seq samples currently (2/2017) available from GEO/SRA. Next, we calculated all pairwise gene correlations from the all the processed RNA-seq expression data. We then iterate over 5192 GO biological process terms where for each gene we calculated the average correlation with the genes in the gene set. The values are stored in a matrix C for all i genes and j biological processes. We then z-score normalized all the columns of C. Finally for each gene, we sorted the corresponding row of C, ranking terms based on the gene population z-score. Terms with high z-scores are predicted to be true annotations for the gene. To show the correctness of the term ranking, we calculated the area under the curve (AUC) from the ROC for all genes with existing annotations in GO. For GO biological processes, the average AUC for retrieving already annotated terms is 0.765.</p>
   <img src="roc_go.png" align="middle">
-  <p><b>Example</b></p>
+  <p><b>Examples of GO annottaions for the three under-studied kinase: PKMYT1, NEK4, PKN3; and the GPCR: ADGRD2</b></p>
 <table class="table table-bordered table-hover table-condensed table-striped">
 <tbody>
 <tr><td><a href="PKMYT1.html">PKMYT1</a><p> 
-This gene encodes a member of the serine/threonine protein kinase family. The encoded protein is a membrane-associated kinase that negatively regulates the G2/M transition of the cell cycle by phosphorylating and inactivating cyclin-dependent kinase 1. The activity of the encoded protein is regulated by polo-like kinase 1. Alternatively spliced transcript variants encoding multiple isoforms have been observed for this gene. [provided by RefSeq, May 2012]</p>
+This gene encodes a member of the serine/threonine protein kinase family. The encoded protein is a membrane-associated kinase that was reported to negatively regulates the G2/M transition of the cell cycle by phosphorylating and inactivating cyclin-dependent kinase 1. The activity of the encoded protein is regulated by polo-like kinase 1. Alternatively spliced transcript variants encoding multiple isoforms have been observed for this gene. This kinase is listed as an under-studied kinase by IDG, and here we show the results of <a href="PKMYT1.html">predicting its GO biological processes terms.</a></p>
 </td><td><a href="NEK4.html">NEK4</a>
-<p>NEK4 (NIMA Related Kinase 4) is a Protein Coding gene. Diseases associated with NEK4 include Meckel Syndrome 1. Among its related pathways are Sweet Taste Signaling. GO annotations related to this gene include transferase activity, transferring phosphorus-containing groups and protein tyrosine kinase activity. An important paralog of this gene is NEK1.</p>
+<p>NEK4 (NIMA Related Kinase 4) is a kinase known to be associated with Meckel Syndrome 1. It was reported that this kinase plays a role in sweet taste signaling. GO annotations related to this gene are few and include tyrosine kinase activity. This kinase is listed as an under-studied kinase by IDG, and here we show the results of <a href="NEK4.html">predicting its GO biological processes terms.</a></p>
 </td></tr>
 <tr><td><a href="PKN3.html">PKN3</a>
-<p>PKN3 (Protein Kinase N3) is a Protein Coding gene. Among its related pathways are Salmonella infection (KEGG) and Signaling by GPCR. GO annotations related to this gene include transferase activity, transferring phosphorus-containing groups and protein tyrosine kinase activity. An important paralog of this gene is PKN1.</p>
+<p>PKN3 (Protein Kinase N3) was reported to be a member of the Salmonella infection pathway (KEGG). GO annotations related to this gene include protein tyrosine kinase activity. This kinase is listed as an under-studied kinase by IDG, and here we show the results of <a href="PKN3.html">predicting its GO biological processes terms.</a></p>
 </td><td><a href="ADGRD2.html">ADGRD2</a>
-<p>ADGRD2 (Adhesion G Protein-Coupled Receptor D2) is a Protein Coding gene. GO annotations related to this gene include G-protein coupled receptor activity and transmembrane signaling receptor activity. An important paralog of this gene is ADGRL1.</p>
+<p>ADGRD2 (Adhesion G Protein-Coupled Receptor D2) is an under-studied G-protein coupled receptor. An important paralog of this gene is ADGRL1. This kinase is listed as an under-studied kinase by IDG, and here we show the results of <a href="ADGRD2.html">predicting its GO biological processes terms.</a></p>
 </td></tr>
 </tbody>
 </table>
