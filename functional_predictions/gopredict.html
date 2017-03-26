@@ -84,7 +84,59 @@
     <div class="container">
       <h2 style='font-weight: 300;'>Target Functional Predictions</h2>
       <p><b>Methods:</b> To predict functions for the under-studied kinases, GPCRs and ion channels, using RNA-seq data from GEO and SRA, an example is provided to show how biological processes from the gene ontology (GO) can be predicted. First, we processed all human and mouse RNA-seq samples currently (2/2017) available from GEO/SRA. Next, we calculated all pairwise gene correlations from the all the processed RNA-seq expression data. We then iterate over 5192 GO biological process terms where for each gene we calculated the average correlation with the genes in the gene set. The values are stored in a matrix C for all i genes and j biological processes. We then z-score normalized all the columns of C. Finally for each gene, we sorted the corresponding row of C, ranking terms based on the gene population z-score. Terms with high z-scores are predicted to be true annotations for the gene. To show the correctness of the term ranking, we calculated the area under the curve (AUC) from the ROC for all genes with existing annotations in GO. For GO biological processes, the average AUC for retrieving already annotated terms is 0.765.</p>
-      <img src="roc_go.png" align="middle">
+
+      <!-- Figure A, B -->
+      <div class="container" style="width: 800px;">
+        <div class="row">
+
+          <div  class='col-xs-6 example_col'>
+            <img src="roc_go.png" align="middle" style='width: 350px;'>
+          </div>
+
+          <div  class='col-xs-6 example_col'>
+            <img src="figure-from-alex-kinases.png" align="middle" style='width: 350px; margin-top: 12px;'>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="container" style="width: 800px; margin-bottom:30px;">
+        <div class="row">
+          <div  class='col-xs-6 example_col' style="text-align: center;">
+            A
+          </div>
+          <div  class='col-xs-6 example_col' style="text-align: center;">
+            B
+          </div>
+        </div>
+      </div>
+
+      <div class="container" style="width: 800px;">
+        <div class="row">
+
+          <div  class='col-xs-6 example_col'>
+            <img src="figure-from-alex-ion-channels.png" align="middle" style='width: 350px;'>
+          </div>
+
+          <div  class='col-xs-6 example_col'>
+            <img src="figure-from-alex-gpcrs.png" align="middle" style='width: 350px;'>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="container" style="width: 800px; margin-bottom:30px;">
+        <div class="row">
+          <div  class='col-xs-6 example_col' style="text-align: center;">
+            C
+          </div>
+          <div  class='col-xs-6 example_col' style="text-align: center;">
+            D
+          </div>
+        </div>
+      </div>
+
+
       <p><b>Examples of GO annotations for the three under-studied kinase: PKMYT1, NEK4, PKN3; and the GPCR: ADGRD2</b></p>
     <table class="table table-bordered table-hover table-condensed table-striped">
     <tbody>
