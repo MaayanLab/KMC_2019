@@ -8,9 +8,29 @@ full_names.gtex = 'my_gtex_Moshe_2017_exp';
 full_names.encode = 'ENCODE_TF_targets';
 full_names.chea = 'ChEA_TF_targets';
 
-// var tmp_num;
-// var cat_colors;
-// global cgm
+d3.selectAll('img').on('click', function(){
+
+  var img_name = d3.select(this).attr('src');
+  img_name = img_name.split('/')[2].split('_')[0];
+
+  clust_options.data_type = img_name.split('-')[1];
+
+  clust_options.protein_class = img_name.split('-')[0].toUpperCase();
+
+  if (clust_options.protein_class === 'KINASE'){
+    clust_options.protein_class = 'KIN';
+  }
+
+  // var data_name = full_naames[data_name]
+
+  // console.log(data_name)
+
+  // var cluster_name =
+
+  make_clust();
+
+});
+
 cgm = {};
 resize_container();
 
@@ -101,83 +121,6 @@ d3.select(window).on('resize',function(){
   })
 
 });
-
-// window.onscroll = function() {
-
-//   var show_col_sim = 200;
-//   var show_row_sim = 1200;
-//   var hide_clust = 900;
-//   var hide_col_sim = 1800;
-//   var inst_scroll = $(document).scrollTop();
-
-//   // // load col sim mat
-//   // if (inst_scroll > show_col_sim){
-//   //   if (d3.select('#container-id-2 .viz_svg').empty()){
-//   //     make_sim_mats('col', cat_colors)
-//   //   }
-//   // }
-
-//   // // load row sim mat
-//   // if (inst_scroll > show_row_sim){
-//   //   if (d3.select('#container-id-3 .viz_svg').empty()){
-//   //     make_sim_mats('row', cat_colors)
-//   //   }
-//   // }
-
-//   // hide clust
-//   if (inst_scroll > hide_clust){
-//     d3.select('#container-id-1 .viz_svg')
-//       .style('display', 'none');
-//   } else {
-//     d3.select('#container-id-1 .viz_svg')
-//       .style('display', 'block');
-//   }
-
-//   // hide col sim mat
-//   if (inst_scroll > hide_col_sim || inst_scroll < show_col_sim){
-//     d3.select('#container-id-2 .viz_svg')
-//       .style('display', 'none');
-//   } else {
-//     d3.select('#container-id-2 .viz_svg')
-//       .style('display', 'block');
-//   }
-
-// }
-
-// function make_sim_mats(inst_rc, cat_colors){
-
-//   clust_name = 'mult_view_sim_'+inst_rc+'.json';
-//   d3.json('json/'+clust_name, function(network_data){
-
-//     var args = $.extend(true, {}, default_args);
-//     args.cat_colors = {};
-
-//     // do not need to transfer cat colors if predefined in viz_json
-//     if (inst_rc === 'col'){
-//       tmp_num = 2;
-//       args.cat_colors.row = cat_colors.col;
-//       args.cat_colors.col = cat_colors.col;
-//     } else if (inst_rc === 'row'){
-//       tmp_num = 3;
-//       args.cat_colors.row = cat_colors.row;
-//       args.cat_colors.col = cat_colors.row;
-//     }
-
-//     args.root = '#container-id-'+tmp_num;
-
-//     args.network_data = network_data;
-//     cgm[inst_rc] = Clustergrammer(args);
-//     d3.select(cgm[inst_rc].params.root+' .wait_message').remove();
-//   });
-
-// }
-
-// function matrix_update_callback(){
-//   console.log('matrix_update_callback')
-//   if (genes_were_found){
-//     enr_obj.clear_enrichr_results();
-//   }
-// }
 
 function dendro_callback(inst_selection){
 
