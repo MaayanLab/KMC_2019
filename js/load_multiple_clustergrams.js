@@ -21,6 +21,14 @@ nice_prot_names.GPCR = 'GPCR';
 
 d3.selectAll('img').on('click', function(){
 
+  // show current selection using red border
+  d3.selectAll('img')
+    .style('border-width', '0px');
+
+  d3.select(this)
+    .style('border-width', '4px')
+    .style('border-color', 'red');
+
   var img_name = d3.select(this).attr('src');
   img_name = img_name.split('/')[2].split('_')[0];
 
@@ -32,7 +40,7 @@ d3.selectAll('img').on('click', function(){
     clust_options.protein_class = 'KIN';
   }
 
-  make_clust();
+  setTimeout(make_clust, 150);
 
 });
 
