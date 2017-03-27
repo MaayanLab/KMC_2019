@@ -14,13 +14,12 @@ def main():
 
   # ENCODE, GTEx, etc
   # hzome_names = ['my_CCLE_exp.txt', 'ENCODE_TF_targets.txt', 'ChEA_TF_targets.txt']
-  hzome_names = ['my_gtex_Moshe_2017_exp.txt']
-  # hzome_names = ['my_CCLE_exp.txt']
+  hzome_names = ['ENCODE_TF_targets.txt']
 
   # define separate sim_cutoffs for different files
   cutoffs = {}
   cutoffs['my_CCLE_exp.txt'] = 0.15
-  cutoffs['ENCODE_TF_targets.txt'] = 0.6
+  cutoffs['ENCODE_TF_targets.txt'] = 0.35 ## 0.6
   cutoffs['ChEA_TF_targets.txt'] = 0.2
   cutoffs['my_gtex_Moshe_2017_exp.txt'] = 0.2
 
@@ -128,9 +127,9 @@ def calc_gene_sim_mat(hzome_data, net, gene_info, gene_class, hzome_name, cutoff
     inst_name = gene_title + ': ' + inst_gene
 
     if inst_gene in gene_info[gene_class]['dark']:
-      inst_cat = 'Dark Gene: true'
+      inst_cat = 'Dark Gene: True'
     else:
-      inst_cat = 'Dark Gene: false'
+      inst_cat = 'Dark Gene: False'
 
     inst_tuple = (inst_name, inst_cat)
     found_genes_cat.append( inst_tuple )
