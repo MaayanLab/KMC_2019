@@ -81,13 +81,38 @@
         margin-bottom: 30px;
       }
 
+      .example_col{
+        font-size: 14px;
+        font-weight: 900;
+      }
+
+      .thumbnail{
+        width: 115px;
+        border: none;
+      }
+
+      img{
+        padding: none;
+      }
+
+      .protein_class{
+        margin-top: 50px;
+        text-align: center;
+      }
+
+      #selection_menu{
+        margin-bottom: 10px;
+        border-top: 1px solid #DEDEDE;
+        padding-top: 15px;
+      }
+
     </style>
 
 </head>
 
 <body>
 
-  <div id="wrap" class='container'>
+  <div id="wrap" class='container' style="min-width: 800px; max-width: 1000px;">
 
     <div class='row viz_title' id='clustergram_title' style='white-space: nowrap; margin-left: 5px;'>
       <p id='example_title'>Omics Mining for the Illuminating the Druggable Genome Project</p>
@@ -99,7 +124,124 @@
       <b>Instructions:</b> The three families of drug targets: GPCRs, ion channels and kinases are clustered by their coexpression based on GTEx or CCLE, or by their coregulation based on ENCODE or ChEA. Under-studied proteins are colored in orange. Such visualization enables the identification of associations between under-studied proteins and their well studied family members. The interactive visualization was implemented using <a href="http://clustergrammer.readthedocs.io/">Clustergrammer</a>. To visually explore relationships between kinases, GPCRs and ion channels, select the family and the background data set used to established correlative associations. The visualization is interactive providing zooming and panning, reordering of rows and columns, as well as sorting and searching. Clicking on the trapizoids enables piping the members of a cluster into the enrichment analysis tool <a href="http://amp.pharm.mssm.edu/Enrichr">Enrichr</a>.
     </p>
 
-    <div id='dropdown_container' style='margin-top: 5px; margin-bottom: 10px;'>
+    <p style='font-size: 25px; margin-bottom: 15px;'>Choose Similarity Matrix to View</p>
+
+    <div id='selection_menu'>
+
+    <div class='container thumbnail_container' style="margin-left: -30px">
+
+      <div class='row' style="margin-bottom: 15px;">
+
+        <div class='col-xs-2 example_col'>
+
+        </div>
+
+        <div class='col-xs-2 example_col'>
+          CCLE Gene Expression
+        </div>
+
+        <div class='col-xs-2 example_col'>
+          GTEx Gene Expression
+        </div>
+
+        <div class='col-xs-2 example_col'>
+          ENCODE TF Targets
+        </div>
+
+        <div class='col-xs-2 example_col'>
+          ChEA TF Targets
+        </div>
+
+      </div>
+
+      <div class='row' >
+
+        <div class='col-xs-2  example_col protein_class'>
+        Kinases
+        </div>
+
+        <div class='col-xs-2 example_col'>
+          <img class='thumbnail' id='app_screenshot' src="img/sim_mat_images/kinase-ccle_sim_mat.png">
+        </div>
+
+        <div class='col-xs-2 example_col'>
+          <img class='thumbnail' id='app_screenshot' src="img/sim_mat_images/kinase-ccle_sim_mat.png">
+        </div>
+
+
+        <div class='col-xs-2 example_col'>
+          <img class='thumbnail' id='app_screenshot' src="img/sim_mat_images/kinase-ccle_sim_mat.png">
+        </div>
+
+
+        <div class='col-xs-2 example_col'>
+          <img class='thumbnail' id='app_screenshot' src="img/sim_mat_images/kinase-ccle_sim_mat.png">
+        </div>
+
+      </div>
+
+      <div class='row' >
+
+        <div class='col-xs-2  example_col protein_class'>
+        Ion Channels
+        </div>
+
+        <div class='col-xs-2 example_col'>
+          <img class='thumbnail' id='app_screenshot' src="img/sim_mat_images/kinase-ccle_sim_mat.png">
+        </div>
+
+        <div class='col-xs-2 example_col'>
+          <img class='thumbnail' id='app_screenshot' src="img/sim_mat_images/kinase-ccle_sim_mat.png">
+        </div>
+
+
+        <div class='col-xs-2 example_col'>
+          <img class='thumbnail' id='app_screenshot' src="img/sim_mat_images/kinase-ccle_sim_mat.png">
+        </div>
+
+
+        <div class='col-xs-2 example_col'>
+          <img class='thumbnail' id='app_screenshot' src="img/sim_mat_images/kinase-ccle_sim_mat.png">
+        </div>
+
+      </div>
+
+
+      <div class='row' >
+
+        <div class='col-xs-2  example_col protein_class'>
+        GPCRs
+        </div>
+
+        <div class='col-xs-2 example_col'>
+          <img class='thumbnail' id='app_screenshot' src="img/sim_mat_images/kinase-ccle_sim_mat.png">
+        </div>
+
+        <div class='col-xs-2 example_col'>
+          <img class='thumbnail' id='app_screenshot' src="img/sim_mat_images/kinase-ccle_sim_mat.png">
+        </div>
+
+
+        <div class='col-xs-2 example_col'>
+          <img class='thumbnail' id='app_screenshot' src="img/sim_mat_images/kinase-ccle_sim_mat.png">
+        </div>
+
+
+        <div class='col-xs-2 example_col'>
+          <img class='thumbnail' id='app_screenshot' src="img/sim_mat_images/kinase-ccle_sim_mat.png">
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+
+    </div>
+
+<!--     <div id='dropdown_container' style='margin-top: 5px; margin-bottom: 10px;'>
 
       <div class="dropdown" style="display: inline-block;">
         <button class="btn btn-default dropdown-toggle dropdown_button" type="button" id="protein_class" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -131,7 +273,7 @@
         </ul>
       </div>
 
-    </div>
+    </div> -->
 
 
     <div class="row" >
