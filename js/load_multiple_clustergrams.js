@@ -1,12 +1,23 @@
-clust_options = {};
+var clust_options = {};
 clust_options.protein_class = 'KIN';
 clust_options.data_type = 'ccle';
 
-full_names = {};
+var full_names = {};
 full_names.ccle = 'my_CCLE_exp';
 full_names.gtex = 'my_gtex_Moshe_2017_exp';
 full_names.encode = 'ENCODE_TF_targets';
 full_names.chea = 'ChEA_TF_targets';
+
+var nice_data_names = {};
+nice_data_names.my_CCLE_exp = 'CCLE Gene Expression';
+nice_data_names.my_gtex_Moshe_2017_exp = 'GTEx Gene Expression';
+nice_data_names.ENCODE_TF_targets = 'ENCODE TF targets';
+nice_data_names.ChEA_TF_targets = 'ChEA TF targets';
+
+var nice_prot_names = {};
+nice_prot_names.KIN = 'Kinase';
+nice_prot_names.IC = 'Ion Channel';
+nice_prot_names.GPCR = 'GPCR';
 
 d3.selectAll('img').on('click', function(){
 
@@ -21,12 +32,6 @@ d3.selectAll('img').on('click', function(){
     clust_options.protein_class = 'KIN';
   }
 
-  // var data_name = full_naames[data_name]
-
-  // console.log(data_name)
-
-  // var cluster_name =
-
   make_clust();
 
 });
@@ -36,30 +41,30 @@ resize_container();
 
 var hzome = ini_hzome();
 
-$("#dropdown_menu_1 li a").click(function(){
+// $("#dropdown_menu_1 li a").click(function(){
 
-  $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
-  $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+//   $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+//   $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
 
-  console.log('change clustergram protein class')
+//   console.log('change clustergram protein class')
 
-  // update global clust_options and rerun make_clust
-  clust_options.protein_class = d3.select(this).attr('data-value');
-  make_clust();
+//   // update global clust_options and rerun make_clust
+//   clust_options.protein_class = d3.select(this).attr('data-value');
+//   make_clust();
 
-});
+// });
 
-$("#dropdown_menu_2 li a").click(function(){
+// $("#dropdown_menu_2 li a").click(function(){
 
-  $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
-  $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+//   $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+//   $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
 
-  console.log('change clustergram data type')
+//   console.log('change clustergram data type')
 
-  clust_options.data_type = d3.select(this).attr('data-value');
-  make_clust();
+//   clust_options.data_type = d3.select(this).attr('data-value');
+//   make_clust();
 
-});
+// });
 
 default_args = {};
   default_args.row_tip_callback = hzome.gene_info;
@@ -73,6 +78,17 @@ function make_clust(){
   var clust_name = data_name + '_' + clust_options.protein_class + '.json';
 
   console.log('loading: ' + clust_name);
+
+  d3.select('#viz_title')
+    .html(function(){
+
+      data_name = nice_data_names[data_name];
+      prot_name = nice_prot_names[clust_options.protein_class];
+
+      var viz_title  = prot_name + ' similarity based on ' + data_name;
+
+      return viz_title;
+    });
 
   // clear out old visualization elements
   d3.selectAll('#container-id-1 div').remove();
